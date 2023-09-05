@@ -3,11 +3,11 @@ import { createPalette } from './create-palette';
 import { createComponents } from './create-components';
 import { createShadows } from './create-shadows';
 import { createTypography } from './create-typography';
-import neutral from './colors.js'
+import { neutral } from './colors';
 
 export function createTheme() {
 //   const palette = createPalette();
-//   const components = createComponents({ palette });
+  const components = createComponents(neutral);
   const shadows = createShadows();
   const typography = createTypography();
 
@@ -21,18 +21,13 @@ export function createTheme() {
         xl: 1440
       }
     },
-    color :{
-        wh: '#FFFFFF',//white
-        bro: '#f45b14',//orange
-        prb: '#06486B',//main dark blue
-        bl: '#000000'//text black
-      }
-    // components,
+    color : neutral,
+    components,
     // palette,
     // shadows,
     // shape: {
     //   borderRadius: 8
     // },
-    // typography
+    typography
   });
 }

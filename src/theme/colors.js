@@ -12,10 +12,12 @@ const withAlphas = (color) => {
 };
 
 export const neutral = {
-  wh: '#FFFFFF',//white
-  bro: '#f45b14',//orange
-  prb: '#06486B',//main dark blue
-  bl: '#000000'//text black
+  white: '#FFFFFF',//white
+  orange: '#f45b14',//orange
+  darkBlue: '#06486B',//main dark blue
+  lightBlue: '#1797B0',//main light blue
+  black: '#000000',//text black,
+  grayLight:'#efefef'
 };
 
 export const indigo = withAlphas({
