@@ -7,6 +7,8 @@
     --gray-light:#efefef;
     --font-family: 'Roboto', sans-serif;
     --font-family-head: 'Roboto Condensed', sans-serif;
+    --animate-delay: 0.5s !important;
+    --animate-duration: 0.5s !important;
 }
 
 html,
@@ -23,7 +25,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -33,4 +35,31 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+
+.line-brand::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: var(--light-blue);
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.line-about-us::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: var(--light-blue);
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 18px #06486B42;
+  }
 }

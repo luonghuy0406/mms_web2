@@ -1,37 +1,17 @@
 import Head from 'next/head';
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as MainLayout} from 'src/layouts/main/layout';
+import News from '@/sections/news/news';
 
 
 const Page = () => (
   <>
     <Head>
       <title>
-        News | MEKONG MARINE SUPPLY CO., LTD
+        News and Events | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth="xl">
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            xs={12}
-            sm={6}
-            lg={3}
-          >
-            <h1>News</h1>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+    <News name="News and Events" />
   </>
 );
 

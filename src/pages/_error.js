@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
-import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
-import Image from 'next/image';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 const Page = ({ statusCode }) => (
   <>
@@ -33,9 +32,9 @@ const Page = ({ statusCode }) => (
               textAlign: 'center'
             }}
           >
-            <Image
+            <img
               alt="Under development"
-              url="/assets/errors/error-404.png"
+              src="/assets/errors/error-404.png"
               style={{
                 display: 'inline-block',
                 maxWidth: '100%',

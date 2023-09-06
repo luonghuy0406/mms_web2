@@ -1,39 +1,19 @@
 import Head from 'next/head';
-import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as MainLayout} from 'src/layouts/main/layout';
+import Products from '@/sections/products/products_line';
 
 
-const Page = () => (
-  <>
-    <Head>
-      <title>
-        Auxiliary Machiery | MEKONG MARINE SUPPLY CO., LTD
-      </title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth="xl">
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            xs={12}
-            sm={6}
-            lg={3}
-          >
-            <h1>Auxiliary Machiery</h1>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
-  </>
-);
+const Page = () => {
+  return (
+    <>
+      <Head>
+        <title>
+          Auxiliary Machiery | MEKONG MARINE SUPPLY CO., LTD
+        </title>
+      </Head>
+      <Products name='Auxiliary Machiery'/>
+    </>
+  )};
 
 Page.getLayout = (page) => (
   <MainLayout>

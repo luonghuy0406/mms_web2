@@ -19,7 +19,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import MenuNav from './menu-nav';
-import Image from 'next/image';
 
 const TOP_NAV_HEIGHT = 150;
 const pages = [
@@ -30,17 +29,17 @@ const pages = [
   }, 
   {
     name: 'about us',
-    path: 'aboutus',
+    path: '/aboutus',
     child: []
   }, 
   {
     name: 'chocking compound',
-    path: 'chocking_compound',
+    path: '/chocking_compound',
     child: []
   }, 
   {
     name: 'auxiliary machinery',
-    path: 'auxiliary_machinery',
+    path: '/auxiliary_machinery',
     child: [
       {
         id: 1,
@@ -58,12 +57,12 @@ const pages = [
   }, 
   {
     name: 'Viega Pipe & Fittings',
-    path: 'viega_pipe_fittings',
+    path: '/viega_pipe_fittings',
     child: []
   }, 
   {
     name: 'News and Event',
-    path: 'news',
+    path: '/news',
     child: []
   }, 
 ]
@@ -120,7 +119,7 @@ export const TopNav = (props) => {
                             }}
                         >
                           <Link href={'/'} legacyBehavior>
-                              <Image url={'./mms_logo.png'} alt='mms logo' width={120} />
+                              <img src={'./mms_logo.png'} alt='mms logo' width={120} />
                           </Link>
                       </Typography>
                       <Link href={'/'} legacyBehavior>
@@ -175,7 +174,7 @@ export const TopNav = (props) => {
                                 <ul key={child.name} disablePadding>
                                     <ListItem key={child.name} disablePadding>
                                       <ListItemButton>
-                                        <Link href={`/${text.path}/${child.id}`}>
+                                        <Link href={`${text.path}/${child.id}`}>
                                           <ListItemText primary={child.name} />
                                         </Link>
                                       </ListItemButton>
@@ -193,7 +192,7 @@ export const TopNav = (props) => {
             </Stack>
             <Stack sx={{display: { xs: "block",md: "block", lg: "none" }}}>
               <Link href={'/'} legacyBehavior>
-                    <Image url={'./mms_logo.png'} alt='mms logo' width={60} />
+                    <img src={'./mms_logo.png'} alt='mms logo' width={60} />
               </Link>
             </Stack>
             <Stack
