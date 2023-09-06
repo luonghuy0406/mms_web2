@@ -75,9 +75,10 @@ const Page = () => (
     swipeable
   >
 {
-    [1,2,3,4,5].map(()=>{
+    [1,2,3,4,5].map((id)=>{
       return(
         <Box
+          key={'image'+id}
           sx={{
             display: "block",
             margin: "auto",

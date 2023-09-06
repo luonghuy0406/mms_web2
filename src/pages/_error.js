@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import Image from 'next/image';
 
 const Page = ({ statusCode }) => (
   <>
@@ -32,9 +33,9 @@ const Page = ({ statusCode }) => (
               textAlign: 'center'
             }}
           >
-            <img
+            <Image
               alt="Under development"
-              src="/assets/errors/error-404.png"
+              url="/assets/errors/error-404.png"
               style={{
                 display: 'inline-block',
                 maxWidth: '100%',
@@ -60,11 +61,6 @@ const Page = ({ statusCode }) => (
           <Button
             component={NextLink}
             href="/"
-            startIcon={(
-              <SvgIcon fontSize="small">
-                {/* <ArrowLeftIcon /> */}
-              </SvgIcon>
-            )}
             sx={{ mt: 3 }}
             variant="contained"
           >

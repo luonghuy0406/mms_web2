@@ -60,7 +60,7 @@ export default function MenuNav(props) {
                 {
                     props.page.child.map((child)=>{
                         return (
-                            <Link href={`/${props.page.path}/${child.id}`}>
+                            <Link key={`/${props.page.path}/${child.id}`} href={`/${props.page.path}/${child.id}`}>
                                 <li 
                                     className={styles.menu__li}
                                     key={child.name}

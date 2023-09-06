@@ -19,6 +19,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import MenuNav from './menu-nav';
+import Image from 'next/image';
 
 const TOP_NAV_HEIGHT = 150;
 const pages = [
@@ -119,7 +120,7 @@ export const TopNav = (props) => {
                             }}
                         >
                           <Link href={'/'} legacyBehavior>
-                              <img src={'./mms_logo.png'} width={120} />
+                              <Image url={'./mms_logo.png'} alt='mms logo' width={120} />
                           </Link>
                       </Typography>
                       <Link href={'/'} legacyBehavior>
@@ -192,7 +193,7 @@ export const TopNav = (props) => {
             </Stack>
             <Stack sx={{display: { xs: "block",md: "block", lg: "none" }}}>
               <Link href={'/'} legacyBehavior>
-                    <img src={'./mms_logo.png'} width={60} />
+                    <Image url={'./mms_logo.png'} alt='mms logo' width={60} />
               </Link>
             </Stack>
             <Stack
@@ -211,7 +212,7 @@ export const TopNav = (props) => {
               >
                 {pages.map((page) => {
                   return (
-                    <MenuNav page={page}/>
+                    <MenuNav key={page.path} page={page}/>
                   );
                 })}
               </Box>
