@@ -29,40 +29,40 @@ const pages = [
   }, 
   {
     name: 'about us',
-    path: '/aboutus',
+    path: 'aboutus',
     child: []
   }, 
   {
     name: 'chocking compound',
-    path: '/chocking-compound',
+    path: 'chocking_compound',
     child: []
   }, 
   {
     name: 'auxiliary machinery',
-    path: '/auxiliary-machinery',
+    path: 'auxiliary_machinery',
     child: [
       {
-        name: 'Boss Oily waterseparator',
-        path: '/boss-oily-waterseparator',
+        id: 1,
+        name: 'Boss Oily water separator'
       },
       {
-        name: 'Sewage treatment',
-        path: '/sewage-treatment',
+        id: 2,
+        name: 'Sewage treatment'
       },
       {
-        name: 'Water Maker RO',
-        path: '/water-maker-ro',
+        id: 3,
+        name: 'Water Maker RO'
       }
     ]
   }, 
   {
     name: 'Viega Pipe & Fittings',
-    path: '/viega-pipe-fittings',
+    path: 'viega_pipe_fittings',
     child: []
   }, 
   {
     name: 'News and Event',
-    path: '/news-event',
+    path: 'news',
     child: []
   }, 
 ]
@@ -98,44 +98,48 @@ export const TopNav = (props) => {
               spacing={2}
             >
               <>
-              <Stack
-                  alignItems="center"
-                  justifyContent="center"
-                  spacing={1}
-                >
-                  <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        sx={{
-                          fontFamily: (theme) => theme.typography.header,
-                          mr: 2,
-                          display: { xs: "none",md: "none", lg: "flex" },
-                          fontWeight: 700,
-                          letterSpacing: ".3rem",
-                          color: "inherit",
-                          textDecoration: "none",
-                        }}
+                  <Stack
+                      alignItems="center"
+                      justifyContent="center"
+                      spacing={1}
                     >
-                        <img src={'./mms_logo.png'} width={120} />
-                  </Typography>
-                  <Typography
-                    variant="label"
-                    noWrap
-                    component="a"
-                    sx={{
-                      fontFamily: (theme) => theme.typography.header,
-                      display: { xs: "none",md: "none", lg: "flex" },
-                      fontWeight: 700,
-                      color:  (theme) => theme.color.darkBlue,
-                      textDecoration: "none",
-                      fontSize:"14px"
-                    }}
-                  >
-                    MEKONG MARINE SUPPLY CO., LTD
-                  </Typography>
-                </Stack>
-                
+                      <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            sx={{
+                              fontFamily: (theme) => theme.typography.header,
+                              mr: 2,
+                              display: { xs: "none",md: "none", lg: "flex" },
+                              fontWeight: 700,
+                              letterSpacing: ".3rem",
+                              color: "inherit",
+                              textDecoration: "none",
+                              cursor: "pointer"
+                            }}
+                        >
+                          <Link href={'/'} legacyBehavior>
+                              <img src={'./mms_logo.png'} width={120} />
+                          </Link>
+                      </Typography>
+                      <Link href={'/'} legacyBehavior>
+                        <Typography
+                          variant="label"
+                          noWrap
+                          sx={{
+                            fontFamily: (theme) => theme.typography.header,
+                            display: { xs: "none",md: "none", lg: "flex" },
+                            fontWeight: 700,
+                            color:  (theme) => theme.color.darkBlue,
+                            textDecoration: "none",
+                            fontSize:"14px",
+                            cursor: "pointer"
+                          }}
+                        >
+                          MEKONG MARINE SUPPLY CO., LTD
+                        </Typography>
+                        </Link>
+                  </Stack>
                 <IconButton
                   size="large"
                   onClick={toggleDrawer(true)}
@@ -155,22 +159,26 @@ export const TopNav = (props) => {
                     onClick={toggleDrawer(false)}
                   >
                     <List>
-                      {pages.map((text,) => (
+                      {pages.map((text) => (
                         <>
                           <ListItem key={text.name} disablePadding>
                             <ListItemButton>
-                              <ListItemText primary={text.name} />
+                              <Link href={text.path}>
+                                <ListItemText primary={text.name} />
+                              </Link>
                             </ListItemButton>
                           </ListItem>
                           {
                             text.child?.map((child)=>{
                               return (
                                 <ul key={child.name} disablePadding>
-                                  <ListItem key={child.name} disablePadding>
-                                    <ListItemButton>
-                                      <ListItemText primary={child.name} />
-                                    </ListItemButton>
-                                  </ListItem>
+                                    <ListItem key={child.name} disablePadding>
+                                      <ListItemButton>
+                                        <Link href={`/${text.path}/${child.id}`}>
+                                          <ListItemText primary={child.name} />
+                                        </Link>
+                                      </ListItemButton>
+                                    </ListItem>
                                 </ul>
                               )
                             })
@@ -182,8 +190,10 @@ export const TopNav = (props) => {
                 </Drawer>
               </>
             </Stack>
-            <Stack sx={{display: { xs: "block",md: "block", lg: "none" },}}>
-                <img src={'./mms_logo.png'} width={60} />
+            <Stack sx={{display: { xs: "block",md: "block", lg: "none" }}}>
+              <Link href={'/'} legacyBehavior>
+                    <img src={'./mms_logo.png'} width={60} />
+              </Link>
             </Stack>
             <Stack
               alignItems="center"
@@ -202,7 +212,6 @@ export const TopNav = (props) => {
                 {pages.map((page) => {
                   return (
                     <MenuNav page={page}/>
-                    
                   );
                 })}
               </Box>

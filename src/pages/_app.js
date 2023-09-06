@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Head from 'next/head';
 import { createTheme } from 'src/theme';
+import '../styles/global.css';
 
 const App = (props) => {
   const { Component, pageProps } = props;
@@ -16,7 +17,7 @@ const App = (props) => {
     <>
     <Head>
         <title>
-          MMS
+          MEKONG MARINE SUPPLY CO., LTD
         </title>
         <meta
           name="viewport"

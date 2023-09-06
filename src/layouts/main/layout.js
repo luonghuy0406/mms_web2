@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 // import { usePathname } from 'next/navigation';
 import { styled } from '@mui/material/styles';
 import { TopNav } from './top-nav';
+import Footer from './footer';
 
 const LayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -19,15 +20,12 @@ export const Layout = (props) => {
     return (
       <>
         <TopNav/>
-        {/* <SideNav
-          onClose={() => setOpenNav(false)}
-          open={openNav}
-        /> */}
         <LayoutRoot>
           <LayoutContainer>
             {children}
           </LayoutContainer>
         </LayoutRoot>
+        <Footer/>
       </>
     );
   }

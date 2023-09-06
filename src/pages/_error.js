@@ -6,7 +6,7 @@ const Page = ({ statusCode }) => (
   <>
     <Head>
       <title>
-        {statusCode} | MMS
+        {statusCode} | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
     <Box
