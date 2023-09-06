@@ -155,6 +155,7 @@ function Products(props) {
                 return (
                     // <Link to={`/product/${item.id}`}>
                     <Grid
+                    key={'product-line'+item}
                     item
                     sx={{p:2}}
                     xs={12}
