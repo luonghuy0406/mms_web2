@@ -52,7 +52,7 @@ export default function MenuNav(props) {
                     display: open ? 'block' : 'none',
                     color:  '#06486B',
                     margin: '0',
-                    background: '#efefef',
+                    background: '#eaf1f4',
                     padding: 0,
                     minWidth: '210px'
                 }}

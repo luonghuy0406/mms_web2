@@ -17,7 +17,7 @@ export const neutral = {
   darkBlue: '#06486B',//main dark blue
   lightBlue: '#1797B0',//main light blue
   black: '#000000',//text black,
-  grayLight:'#efefef'
+  grayLight:'#eaf1f4'
 };
 
 export const indigo = withAlphas({

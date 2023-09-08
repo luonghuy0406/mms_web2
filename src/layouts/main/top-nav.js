@@ -75,7 +75,7 @@ export const TopNav = (props) => {
         component="header"
         sx={{
           backdropFilter: 'blur(6px)',
-          backgroundColor: (theme) => theme.color.white,
+          backgroundColor: (theme) => theme.color.grayLight,
           position: 'sticky',
           width: {lg: '100%'},
           zIndex: (theme) => theme.zIndex.appBar
