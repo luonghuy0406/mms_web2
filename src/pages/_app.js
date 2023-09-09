@@ -4,6 +4,7 @@ import { CssBaseline } from '@mui/material';
 import Head from 'next/head';
 import { createTheme } from 'src/theme';
 import '../styles/global.css';
+import '../styles/ckeditor.css';
 
 const App = (props) => {
   const { Component, pageProps } = props;
