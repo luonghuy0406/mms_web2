@@ -1,10 +1,12 @@
 import Head from 'next/head';
-import { Box} from '@mui/material';
+import { Box, Container, Grid, Typography} from '@mui/material';
 import { Layout as MainLayout} from 'src/layouts/main/layout';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useInView } from 'react-intersection-observer';
 import AboutUs from '@/sections/aboutus/aboutus';
+import OurPartner from '@/sections/ourpartner/ourpartner';
+import ProductHome from '@/sections/products/product_home';
 
 const Page = () => {
   const { ref, inView, entry } = useInView({
@@ -39,6 +41,7 @@ const Page = () => {
           centerMode={false}
           className=""
           containerClass="container"
+          customTransition="all 0.5s linear"
           dotListClass=""
           draggable
           focusOnSelect={false}
@@ -111,6 +114,38 @@ const Page = () => {
         </Carousel>
       </Box>
       <AboutUs/>
+      <OurPartner/>
+      <Grid item md={12} sx={{ padding: 0 }}>
+        <Container maxWidth="md" sx={{ p: 2 }}>
+          <Grid container >
+            <Grid
+                id="content_lb1"
+                item
+                xs={12}
+                md={12}
+                sx={{ padding: {xs:"10px 0 !important" ,md:"20px 0 !important"}, fontSize: "22px" }}
+                className={"animate__animated animate__delay-0.1s"}
+            >
+                <Typography
+                fontFamily={"var(--font-family-header)"}
+                variant="h4"
+                component="h4"
+                sx={{ color: "var(--dark-blue)" }}
+                fontWeight="bolder"
+                >
+                Products
+                </Typography>
+                <span className={"line-brand"}></span>
+            </Grid>
+            <ProductHome/>
+            <ProductHome reverse={true}/>
+            <ProductHome/>
+            <ProductHome reverse={true}/>
+            <ProductHome/>
+          </Grid>
+        </Container>
+      </Grid>
+     
     </>
   )};
 

@@ -146,7 +146,7 @@ import Link from "next/link";
                     aspectRatio: " 3/2",
                     objectFit: "contain",
                   }}
-                  src={data.image}
+                  src={'https://placehold.co/600x400'}
                 />
                 <Box
                   component="img"
@@ -175,13 +175,13 @@ import Link from "next/link";
                   {data.name.replace("<br>", "")}
                 </Typography>
                 <Divider />
-                <Box pt={1} pb={2}>
+                <Box pt={1} pb={2} className='ck-content'>
                   <label
                     style={{
-                      color: "var(--dark-blue)",
+                      color: "var(--black)",
                       fontFamily: "var(--font-family)",
                     }}
-                    dangerouslySetInnerHTML={{ __html: t(data["description"]) }}
+                    dangerouslySetInnerHTML={{ __html: '<p>Giới thiệu sản phẩm</p><ul><li>Tính năng 1</li><li>Tính năng 2</li><li>…</li></ul>' }}
                   ></label>
                 </Box>
   
@@ -196,17 +196,17 @@ import Link from "next/link";
                   {t("SPECIFICATION")}
                 </Typography>
                 <Divider />
-                <Box pt={1} pb={2}>
+                <Box pt={1} pb={2} className='ck-content'>
                   <label
                     style={{
-                      color: "var(--dark-blue)",
+                      color: "var(--black)",
                       fontFamily: "var(--font-family)",
                     }}
-                    dangerouslySetInnerHTML={{ __html: t(data["specification"]) }}
+                    dangerouslySetInnerHTML={{ __html: '<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>' }}
                   ></label>
                   <br />
                   <br />
-                  {data.brochue && (
+                  {/* {data.brochue && ( */}
                     <label
                       style={{
                         color: "var(--dark-blue)",
@@ -224,7 +224,7 @@ import Link from "next/link";
                         {t("Product brochure")}
                       </a>
                     </label>
-                  )}
+                  {/* )} */}
                 </Box>
                 <FormContact
                 //   productId={secondId}
