@@ -103,22 +103,22 @@ const OurPartnerContent = () => {
             swipeable
             >
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
+                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
                 </Box>
             </Carousel>
       </Grid>

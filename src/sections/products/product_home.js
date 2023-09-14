@@ -128,7 +128,7 @@ return (
                             color: "var(--black)",
                             fontFamily: "var(--font-family)",
                         }}
-                        dangerouslySetInnerHTML={{ __html: '<p>Giới thiệu sản phẩm</p><ul><li>Tính năng 1</li><li>Tính năng 2</li><li>…</li></ul>' }}
+                        dangerouslySetInnerHTML={{ __html: "<p>Giới thiệu sản phẩm</p><ul><li>Tính năng 1</li><li>Tính năng 2</li><li>…</li></ul>" }}
                         ></label>
                     </Box>
 
@@ -149,7 +149,7 @@ return (
                             color: "var(--black)",
                             fontFamily: "var(--font-family)",
                         }}
-                        dangerouslySetInnerHTML={{ __html: '<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>' }}
+                        dangerouslySetInnerHTML={{ __html: "<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>" }}
                         ></label>
                         <br />
                         <br />

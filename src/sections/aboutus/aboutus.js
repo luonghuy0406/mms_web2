@@ -139,7 +139,7 @@ const AboutUsContent = () => {
             </Stack>
             <Stack spacing={2} sx={{pt:2}}>
               <Typography>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
               </Typography>
               <Typography>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -205,28 +205,28 @@ const AboutUsContent = () => {
             swipeable
             >
                 <Box sx={{p:2}}>
-                    <img src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
+                    <img  alt='logo' src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
+                    <img  alt='logo' src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
+                    <img  alt='logo' src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
+                    <img  alt='logo' src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
+                    <img  alt='logo' src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
+                    <img  alt='logo' src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
+                    <img  alt='logo' src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
                 </Box>
                 <Box sx={{p:2}}>
-                    <img src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
+                    <img  alt='logo' src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
                 </Box>
         </Carousel>
       </Grid>
