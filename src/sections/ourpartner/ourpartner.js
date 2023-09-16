@@ -1,5 +1,7 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import $ from 'jquery'
+import 'animate.css';
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Carousel from "react-multi-carousel";
@@ -21,14 +23,23 @@ export default OurPartner;
 const OurPartnerContent = () => {
 
   const { t } = useTranslation();
+  
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
   });
+  useEffect(() =>{
+    if(inView && !$("#ourpartner_header").hasClass("animate__fadeInLeft")){
+      $("#ourpartner_header").addClass("animate__fadeInLeft")
+    }
+    if(inView && !$("#ourpartner_image").hasClass("animate__fadeInRight")){
+      $("#ourpartner_image").addClass("animate__fadeInRight")
+    }
+  },[inView])
   return (
     <Grid container ref={ref}>
       <Grid
-        id="content_lb1"
+        id="ourpartner_header"
         item
         xs={12}
         md={12}
@@ -46,7 +57,7 @@ const OurPartnerContent = () => {
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} id="ourpartner_image"  className={"animate__animated animate__delay-0.1s"}>
         <Carousel
             additionalTransfrom={0}
             arrows

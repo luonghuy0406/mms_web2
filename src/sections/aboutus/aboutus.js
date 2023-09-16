@@ -1,8 +1,9 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import 'animate.css';
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-
+import $ from 'jquery'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -25,26 +26,29 @@ const AboutUsContent = () => {
     /* Optional options */
     threshold: 0,
   });
-//   useEffect(() =>{
-//     if(inView && !$("#content_lb1").hasClass("animate__fadeInLeft")){
-//       $("#content_lb1").addClass("animate__fadeInLeft")
-//     }
-//     if(inView && !$("#about_us_content1").hasClass("animate__fadeInLeft")){
-//       $("#about_us_content1").addClass("animate__fadeInLeft")
-//     }
-//     if(inView && !$("#about_us_image1").hasClass("animate__fadeInRight")){
-//       $("#about_us_image1").addClass("animate__fadeInRight")
-//     }
-//   },[inView])
+  useEffect(() =>{
+    if(inView && !$("#aboutus_header").hasClass("animate__fadeInLeft")){
+      $("#aboutus_header").addClass("animate__fadeInLeft")
+    }
+    if(inView && !$("#aboutus_image").hasClass("animate__fadeInLeft")){
+      $("#aboutus_image").addClass("animate__fadeInLeft")
+    }
+    if(inView && !$("#aboutus_content").hasClass("animate__fadeInRight")){
+      $("#aboutus_content").addClass("animate__fadeInRight")
+    }
+    if(inView && !$("#aboutus_brand").hasClass("animate__fadeInRight")){
+      $("#aboutus_brand").addClass("animate__fadeInRight")
+    }
+  },[inView])
   return (
     <Grid container ref={ref}>
       <Grid
-        id="content_lb1"
+        id="aboutus_header"
         item
         xs={12}
         md={12}
         sx={{ padding: {xs:"10px 0 !important" ,md:"20px 0 !important"}, fontSize: "22px" }}
-        className={"animate__animated animate__delay-0.1s"}
+        className={"animate__animated animate__delay-0.1s "}
       >
         <Typography
           fontFamily={"var(--font-family-header)"}
@@ -57,7 +61,7 @@ const AboutUsContent = () => {
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>
-      <Grid item md={6} lg={5} container spacing={3} sx={{alignItems: 'center'}}>
+      <Grid  id="aboutus_image" className={"animate__animated animate__delay-0.1s "} item md={6} lg={5} container spacing={3} sx={{alignItems: 'center'}}>
         <Grid item xs={6}>
             <Stack sx={{mb:2}}>
               <Box
@@ -117,7 +121,7 @@ const AboutUsContent = () => {
             </Stack>
         </Grid>
       </Grid>
-      <Grid item md={6} lg={7} direction='row' container sx={{alignItems: 'center',pl:7}}>
+      <Grid  id="aboutus_content" className={"animate__animated animate__delay-0.1s "} item md={6} lg={7} direction='row' container sx={{alignItems: 'center',pl:7}}>
           <Stack >
             <Stack direction='row' sx={{alignItems: 'center'}}>
               <Stack direction='row' sx={{alignItems: 'baseline'}}>
@@ -148,7 +152,7 @@ const AboutUsContent = () => {
           </Stack>
       </Grid>
 
-      <Grid item xs={12} sx={{pt:3}}>
+      <Grid  id="aboutus_brand" className={"animate__animated animate__delay-0.1s "} item xs={12} sx={{pt:3}}>
         <Carousel
             additionalTransfrom={0}
             arrows={false}

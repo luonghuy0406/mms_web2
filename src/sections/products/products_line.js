@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import $ from 'jquery'
 import {
   Grid,
@@ -9,6 +9,7 @@ import {
   useTheme,
   Box,
 } from "@mui/material";
+import 'animate.css'
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -112,21 +113,22 @@ function Products(props) {
     /* Optional options */
     threshold: 0,
   });
-  
-  useEffect(() => {
-    if (inView && !$("#product_line_lb").hasClass("animate__fadeInLeft")) {
-      $("#product_line_lb").addClass("animate__fadeInLeft");
+  const headerRef = useRef()
+  const productRef = useRef()
+  useEffect(() =>{
+    if(inView && !headerRef.current.classList.contains('animate__fadeInLeft')){
+        headerRef.current.classList.add("animate__fadeInLeft")
     }
-    if (inView && !$("#product_line_content").hasClass("animate__fadeInRight")) {
-      $("#product_line_content").addClass("animate__fadeInRight");
-    }
-  }, [inView]);
+    if(inView && !productRef.current.classList.contains('animate__fadeInRight')){
+      productRef.current.classList.add("animate__fadeInRight")
+  }
+  },[inView])
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container maxWidth="md" sx={{ p: 2 }}>
+      <Container ref={ref} maxWidth="md" sx={{ p: 2 }}>
         <Grid container >
             <Grid
-                id="content_lb1"
+                ref={headerRef}
                 item
                 xs={12}
                 md={12}
@@ -145,7 +147,7 @@ function Products(props) {
                 <span className={"line-brand"}></span>
             </Grid>
             <Grid
-                id="product_line_content"
+                ref={productRef}
                 container
                 classes={{ root: classes.container }}
                 pt={5}

@@ -8,7 +8,7 @@ import {
     Breadcrumbs,
   } from "@mui/material";
   import $ from "jquery";
-  import React, { useEffect } from "react";
+  import React, { useEffect, useRef } from "react";
   import { useTranslation } from "react-i18next";
   import { useInView } from "react-intersection-observer";
   import "react-multi-carousel/lib/styles.css";
@@ -71,58 +71,64 @@ import Link from "next/link";
     });
     const data = {name:'product1'}
     const logoBrand =''
-    // useEffect(() => {
-    //   if (inView && !$("#lb-" + secondId).hasClass("animate__fadeInLeft")) {
-    //     $("#lb-" + secondId).addClass("animate__fadeInLeft");
-    //   }
-    //   if (inView && !$("#ct-" + secondId).hasClass("animate__fadeInRight")) {
-    //     $("#ct-" + secondId).addClass("animate__fadeInRight");
-    //   }
-    // }, [inView]);
+    
+  const headerRef = useRef()
+  const productRef = useRef()
+  useEffect(() =>{
+    if(inView && !headerRef.current.classList.contains('animate__fadeInLeft')){
+        headerRef.current.classList.add("animate__fadeInLeft")
+    }
+    if(inView && !productRef.current.classList.contains('animate__fadeInRight')){
+      productRef.current.classList.add("animate__fadeInRight")
+  }
+  },[inView])
     return (
       <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
         <Container maxWidth="md" sx={{ p: 2 }}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link href='/' underline="hover" style={{ textDecoration: "none", color: "gray" }}>
-              Home
-            </Link>
-            <Link href={`/${props.parent}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
-              {props.parent}
-            </Link>
-            <Typography color="var(--orange)">
-              {props.slug}
-            </Typography>
-          </Breadcrumbs>
-          <div
-            // id={"lb-" + secondId}
-            style={{ display: "flex", padding: "50px 0" }}
-            className={"animate__animated animate__delay-0.1s"}
-          >
+          <div 
+              ref={headerRef}
+              className={"animate__animated animate__delay-0.1s"}>
+            <Breadcrumbs aria-label="breadcrumb">
+              <Link href='/' underline="hover" style={{ textDecoration: "none", color: "gray" }}>
+                Home
+              </Link>
+              <Link href={`/${props.parent}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
+                {props.parent}
+              </Link>
+              <Typography color="var(--orange)">
+                {props.slug}
+              </Typography>
+            </Breadcrumbs>
             <div
-              style={{
-                marginTop: "2px",
-                minWidth: "30px",
-                width: "30px",
-                height: "30px",
-                marginRight: "10px",
-                backgroundColor: "var(--light-blue)",
-              }}
-            ></div>
-            <Typography
-              fontFamily={"var(--font-family-header)"}
-              color={"var(--dark-blue)"}
-              variant="h4"
-              component="h4"
-              fontWeight="bolder"
-              // lineHeight={0}
+              // id={"lb-" + secondId}
+              style={{ display: "flex", padding: "50px 0" }}
             >
-              {props.slug}
-            </Typography>
+              <div
+                style={{
+                  marginTop: "2px",
+                  minWidth: "30px",
+                  width: "30px",
+                  height: "30px",
+                  marginRight: "10px",
+                  backgroundColor: "var(--light-blue)",
+                }}
+              ></div>
+              <Typography
+                fontFamily={"var(--font-family-header)"}
+                color={"var(--dark-blue)"}
+                variant="h4"
+                component="h4"
+                fontWeight="bolder"
+                // lineHeight={0}
+              >
+                {props.slug}
+              </Typography>
+            </div>
           </div>
           <Grid
-            // id={"ct-" + secondId}
             container
             classes={{ root: classes.container }}
+            ref={productRef}
             className={"animate__animated animate__delay-0.1s"}
           >
             <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>

@@ -1,13 +1,7 @@
-import {
-    Box,
-    Container,
-    Divider,
-    Grid,
-    Typography,
-    useTheme,
-    Breadcrumbs,
-  } from "@mui/material";
-import React, { useEffect } from "react";
+import {Box, Container, Divider, Grid, Typography, useTheme } from "@mui/material";
+import $ from 'jquery'
+import 'animate.css';
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import "react-multi-carousel/lib/styles.css";
@@ -15,39 +9,39 @@ import ArticleIcon from "@mui/icons-material/Article";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => {
-const theme = useTheme();
-return {
-    container: {
-    width: "calc(100%)  !important",
-    marginLeft: "0 !important",
-    },
-    background: {
-    "&:hover": {
-        filter: "drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5))",
-        zIndex: "1",
-        backgroundColor: "var(--dark-blue)",
-        transition: "background-color .2s linear !important",
-        "& img": {
-        [theme.breakpoints.down("sm")]: {
-            width: "65%",
-            transition: "width .3s linear !important",
+    const theme = useTheme();
+    return {
+        container: {
+        width: "calc(100%)  !important",
+        marginLeft: "0 !important",
         },
-        [theme.breakpoints.up("md")]: {
-            width: "95%",
-            transition: "width .3s linear !important",
+        background: {
+        "&:hover": {
+            filter: "drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5))",
+            zIndex: "1",
+            backgroundColor: "var(--dark-blue)",
+            transition: "background-color .2s linear !important",
+            "& img": {
+            [theme.breakpoints.down("sm")]: {
+                width: "65%",
+                transition: "width .3s linear !important",
+            },
+            [theme.breakpoints.up("md")]: {
+                width: "95%",
+                transition: "width .3s linear !important",
+            },
+            },
         },
         },
-    },
-    },
-    button: {
-    backgroundColor: "var(--dark-blue) !important",
-    fontWeight: "bold !important",
-    padding: "10px 15px !important",
-    "&:hover": {
-        backgroundColor: "var(--orange) !important",
-    },
-    },
-};
+        button: {
+        backgroundColor: "var(--dark-blue) !important",
+        fontWeight: "bold !important",
+        padding: "10px 15px !important",
+        "&:hover": {
+            backgroundColor: "var(--orange) !important",
+        },
+        },
+    };
 });
 
 function ProductHome(props) {
@@ -56,17 +50,26 @@ useEffect(() => {
 }, []);
 const classes = useStyles();
 const { t } = useTranslation();
+const productRef = useRef() 
 const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
 });
 const data = {name:'product1'}
 const logoBrand =''
+
+useEffect(() =>{
+    if(inView && props.reverse && !productRef.current.classList.contains('animate__fadeInLeft')){
+        productRef.current.classList.add("animate__fadeInLeft")
+    }else if(inView  && !productRef.current.classList.contains('animate__fadeInRight')){
+        productRef.current.classList.add("animate__fadeInRight")
+    }
+  },[inView])
 return (
     <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
-        <Container maxWidth="md" sx={{ p: 2 }}>
-            
+        <Container   maxWidth="md" sx={{ p: 2 }}>   
             <Grid
+                ref={productRef}
                 direction={props.reverse ? 'row-reverse' : 'row'}
                 container
                 classes={{ root: classes.container }}
