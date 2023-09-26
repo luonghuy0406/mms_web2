@@ -19,6 +19,7 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import MenuNav from './menu-nav';
+import LanguagePopover from './LanguagePopover';
 
 const TOP_NAV_HEIGHT = 150;
 const pages = [
@@ -28,17 +29,17 @@ const pages = [
     child: []
   }, 
   {
-    name: 'about us',
+    name: 'aboutus',
     path: '/aboutus',
     child: []
   }, 
   {
-    name: 'chocking compound',
+    name: 'chocking_compound',
     path: '/chocking_compound',
     child: []
   }, 
   {
-    name: 'auxiliary machinery',
+    name: 'auxiliary_machinery',
     path: '/auxiliary_machinery',
     child: [
       {
@@ -56,12 +57,17 @@ const pages = [
     ]
   }, 
   {
-    name: 'Viega Pipe & Fittings',
+    name: 'viega_pipe_fittings',
     path: '/viega_pipe_fittings',
     child: []
   }, 
   {
-    name: 'News and Event',
+    name: 'viton_fkm_rubber_packing_sheet',
+    path: '/viton_fkm_rubber_packing_sheet',
+    child: []
+  },
+  {
+    name: 'news',
     path: '/news',
     child: []
   }, 
@@ -195,6 +201,7 @@ export const TopNav = (props) => {
                     <img src={'./mms_logo.png'} alt='mms logo' width={60} />
               </Link>
             </Stack>
+
             <Stack
               alignItems="center"
               direction="row"
@@ -216,6 +223,7 @@ export const TopNav = (props) => {
                 })}
               </Box>
             </Stack>
+            <LanguagePopover/>
           </Stack>
       </Container>
       </Box>

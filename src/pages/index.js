@@ -7,17 +7,21 @@ import { useInView } from 'react-intersection-observer';
 import AboutUs from '@/sections/aboutus/aboutus';
 import OurPartner from '@/sections/ourpartner/ourpartner';
 import ProductHome from '@/sections/products/product_home';
+import useTrans from './hooks/useTrans';
+
 
 const Page = () => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
   });
+  const trans = useTrans()
+
   return (
     <>
       <Head>
         <title>
-          Home | MEKONG MARINE SUPPLY CO., LTD
+          {trans.home.title} | MEKONG MARINE SUPPLY CO., LTD
         </title>
       </Head>
       <Box

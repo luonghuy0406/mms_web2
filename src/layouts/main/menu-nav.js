@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import styles from './styles.module.css'
 import Link from 'next/link';
+import useTrans from '@/pages/hooks/useTrans';
 
 export default function MenuNav(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,6 +13,8 @@ export default function MenuNav(props) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    
+  const trans = useTrans()
     return (
     <Box position={"relative"} 
         onMouseEnter={handleOpen} 
@@ -22,8 +25,8 @@ export default function MenuNav(props) {
                 key={props.page.name}
                 sx={{
                     m: 1,
-                    px: 3,
-                    py:2,
+                    px: 1,
+                    py:1,
                     display: "block",
                     fontSize: "16px",
                     fontWeight: "bold",
@@ -41,7 +44,7 @@ export default function MenuNav(props) {
                     },
                 }}
                 >
-                {props.page.name}
+                {trans.header[props.page.name]}
             </Typography>
         </Link>
         {
