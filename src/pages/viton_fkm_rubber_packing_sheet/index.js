@@ -10,7 +10,7 @@ const Page = () => (
         Viton/fkm rubber packing sheet | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <Products name='Viton/fkm rubber packing sheet'/>
+    <Products name='Viton/fkm rubber packing sheet' path={'viton_fkm_rubber_packing_sheet'}/>
   </>
 );
 

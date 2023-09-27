@@ -20,8 +20,6 @@ function AboutUs() {
 export default AboutUs;
 
 const AboutUsContent = () => {
-
-  const { t } = useTranslation();
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
@@ -57,7 +55,7 @@ const AboutUsContent = () => {
           sx={{ color: "var(--dark-blue)" }}
           fontWeight="bolder"
         >
-          {t("ABOUT US")}
+          ABOUT US
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>

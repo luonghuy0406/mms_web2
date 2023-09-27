@@ -104,19 +104,19 @@ function News(props) {
                 className={"animate__animated animate__delay"}
             >
                 <Grid item xs={12}>
-                    <NewestPost/>
+                    <NewestPost path={props.path} id={1}/>
                 </Grid>
                 <Grid item xs={6}>
-                    <PostCard/>
+                    <PostCard path={props.path} id={2}/>
                 </Grid>
                 <Grid item xs={6}>
-                    <PostCard/>
+                    <PostCard path={props.path} id={3}/>
                 </Grid>
                 <Grid item xs={6}>
-                    <PostCard/>
+                    <PostCard path={props.path} id={4}/>
                 </Grid>
                 <Grid item xs={6}>
-                    <PostCard/>
+                    <PostCard path={props.path} id={5}/>
                 </Grid>
 
 
@@ -130,13 +130,13 @@ function News(props) {
 
 export default News;
 
-const NewestPost = ()=>{
+const NewestPost = (props)=>{
   const classes = useStyles();
   return(
     <Box className={classes.cardNew}> 
       <Link
         className={classes.inner}
-        href="/news/1"
+        href={`/${props.path}/${props.id}`}
         title="NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023"
       >
           <Grid
@@ -206,14 +206,14 @@ const NewestPost = ()=>{
   )
 }
 
-const PostCard = () => {
+const PostCard = (props) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.card} sx={{borderRadius:'0px', boxShadow:'unset'}}>
       <Link
         className={classes.inner}
-        href="https://newtecons.vn/newtecons-to-chuc-chuoi-hoat-dong-chao-mung-ngay-truyen-thong-2023/"
+        href={`/${props.path}/${props.id}`}
         title="NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023"
       >
         <Box position='relative'>
@@ -276,7 +276,6 @@ const PostCard = () => {
 
 const FormContact = () => {
   const [open, setOpen] = React.useState(false);
-  const { t } = useTranslation();
   const classes = useStyles();
   const handleClickOpen = () => {
     setOpen(true);
@@ -293,7 +292,7 @@ const FormContact = () => {
         onClick={handleClickOpen}
         className={classes.button}
       >
-        {t("Contact us")}
+        Contact us
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>

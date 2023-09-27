@@ -10,7 +10,7 @@ const Page = () => (
         Viega Pipe Fitings | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <Products name='Viega Pipe Fitings'/>
+    <Products name='Viega Pipe Fitings' path={'viega_pipe_fittings'}/>
   </>
 );
 

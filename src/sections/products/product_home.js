@@ -49,7 +49,6 @@ useEffect(() => {
     window.scrollTo(0, 0);
 }, []);
 const classes = useStyles();
-const { t } = useTranslation();
 const productRef = useRef() 
 const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -143,7 +142,7 @@ return (
                         fontWeight="bolder"
                         pb={2}
                     >
-                        {t("SPECIFICATION")}
+                        SPECIFICATION
                     </Typography>
                     <Divider />
                     <Box pt={1} pb={2} className='ck-content'>
@@ -171,7 +170,7 @@ return (
                             style={{ paddingLeft: "10px" }}
                             target="_blank"
                             >
-                            {t("Product brochure")}
+                            Product brochure
                             </a>
                         </label>
                         {/* )} */}

@@ -64,7 +64,6 @@ import Link from "next/link";
       window.scrollTo(0, 0);
     }, []);
     const classes = useStyles();
-    const { t } = useTranslation();
     const { ref, inView, entry } = useInView({
       /* Optional options */
       threshold: 0,
@@ -92,7 +91,7 @@ import Link from "next/link";
               <Link href='/' underline="hover" style={{ textDecoration: "none", color: "gray" }}>
                 Home
               </Link>
-              <Link href={`/${props.parent}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
+              <Link href={`${props.parent}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
                 {props.parent}
               </Link>
               <Typography color="var(--orange)">
@@ -199,7 +198,7 @@ import Link from "next/link";
                   fontWeight="bolder"
                   pb={2}
                 >
-                  {t("SPECIFICATION")}
+                  SPECIFICATION
                 </Typography>
                 <Divider />
                 <Box pt={1} pb={2} className='ck-content'>
@@ -227,7 +226,7 @@ import Link from "next/link";
                         style={{ paddingLeft: "10px" }}
                         target="_blank"
                       >
-                        {t("Product brochure")}
+                        Product brochure
                       </a>
                     </label>
                   {/* )} */}
@@ -253,7 +252,6 @@ import Link from "next/link";
     const [nameValid, setNameValid] = React.useState(false);
     const [emailValid, setEmailValid] = React.useState(false);
     const [phoneValid, setPhoneValid] = React.useState(false);
-    const { t } = useTranslation();
     const classes = useStyles();
     const handleClickOpen = () => {
       setOpen(true);
@@ -305,7 +303,7 @@ import Link from "next/link";
           onClick={handleClickOpen}
           className={classes.button}
         >
-          {t("Contact us")}
+          Contact us
         </Button>
         <Dialog open={open} onClose={handleClose}>
           <form id={"send-mail-form" + props.productId}>
@@ -316,7 +314,7 @@ import Link from "next/link";
                 textAlign: "center",
               }}
             >
-              {t("Contact us")}
+              Contact us
             </DialogTitle>
             <DialogContent sx={{ paddingTop: "24px !important" }}>
               <TextField
@@ -324,7 +322,7 @@ import Link from "next/link";
                 autoFocus
                 margin="dense"
                 name="name"
-                label={t("Full name")}
+                label="Full name"
                 type="text"
                 fullWidth
                 variant="outlined"
@@ -338,13 +336,13 @@ import Link from "next/link";
                   }
                 }}
                 error={nameValid}
-                helperText={nameValid ? t("Name is not null.") : ""}
+                helperText={nameValid ? "Name is not null." : ""}
               />
               <TextField
                 required
                 margin="dense"
                 name="email"
-                label={t("Email address")}
+                label="Email address"
                 type="email"
                 fullWidth
                 variant="outlined"
@@ -358,13 +356,13 @@ import Link from "next/link";
                   }
                 }}
                 error={emailValid}
-                helperText={emailValid ? t("Email is not null.") : ""}
+                helperText={emailValid ? "Email is not null." : ""}
               />
               <TextField
                 required
                 margin="dense"
                 name="phone"
-                label={t("Phone number")}
+                label="Phone number"
                 type="text"
                 fullWidth
                 variant="outlined"
@@ -378,24 +376,24 @@ import Link from "next/link";
                   }
                 }}
                 error={phoneValid}
-                helperText={phoneValid ? t("Phone number is not null.") : ""}
+                helperText={phoneValid ? "Phone number is not null." : ""}
               />
               <TextField
                 margin="dense"
                 id="content"
                 name="content"
-                label={t("Message")}
+                label="Message"
                 multiline
                 rows={4}
-                defaultValue={t("I'm interested in ") + props.content}
+                defaultValue={"I'm interested in " + props.content}
                 fullWidth
                 variant="outlined"
                 pt={1}
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>{t("CANCEL")}</Button>
-              <Button onClick={handleSendMail}>{t("SEND")}</Button>
+              <Button onClick={handleClose}>CANCEL</Button>
+              <Button onClick={handleSendMail}>SEND</Button>
             </DialogActions>
           </form>
         </Dialog>

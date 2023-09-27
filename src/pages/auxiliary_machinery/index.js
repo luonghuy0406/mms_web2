@@ -11,7 +11,7 @@ const Page = () => {
           Auxiliary Machiery | MEKONG MARINE SUPPLY CO., LTD
         </title>
       </Head>
-      <Products name='Auxiliary Machiery'/>
+      <Products name='Auxiliary Machiery' path={'auxiliary_machinery'}/>
     </>
   )};
 

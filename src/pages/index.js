@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import AboutUs from '@/sections/aboutus/aboutus';
 import OurPartner from '@/sections/ourpartner/ourpartner';
 import ProductHome from '@/sections/products/product_home';
-import useTrans from './hooks/useTrans';
+import useTrans from '../hooks/useTrans';
 
 
 const Page = () => {

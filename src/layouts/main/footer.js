@@ -10,7 +10,6 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 
 
 function Footer() {
-  const { t } = useTranslation();
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">
@@ -50,7 +49,7 @@ function Footer() {
               color="var(--dark-blue)"
               fontWeight="bolder"
             >
-              {t("HEAD OFFICE")}
+              HEAD OFFICE
             </Typography>
             <label
               style={{
@@ -64,9 +63,7 @@ function Footer() {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: t(
-                    "16 Yen The St, Ward 2, Tan Binh Dist., HCMC, Viet Nam"
-                  ),
+                  __html: "16 Yen The St, Ward 2, Tan Binh Dist., HCMC, Viet Nam",
                 }}
               ></label>
             </label>
@@ -111,7 +108,7 @@ function Footer() {
               color="var(--dark-blue)"
               fontWeight="bolder"
             >
-              {t("VUNG TAU OFFICE")}
+              VUNG TAU OFFICE
             </Typography>
             <label
               style={{
@@ -125,9 +122,7 @@ function Footer() {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: t(
-                    "D1-2/8 Chi Linh Urban Area, Vung Tau City, Viet Nam"
-                  ),
+                  __html: "D1-2/8 Chi Linh Urban Area, Vung Tau City, Viet Nam",
                 }}
               ></label>
             </label>

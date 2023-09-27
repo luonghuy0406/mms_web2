@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material'
 import React from 'react'
 import styles from './styles.module.css'
 import Link from 'next/link';
-import useTrans from '@/pages/hooks/useTrans';
+import useTrans from '@/hooks/useTrans';
 
 export default function MenuNav(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,7 +63,7 @@ export default function MenuNav(props) {
                 {
                     props.page.child.map((child)=>{
                         return (
-                            <Link key={`${props.page.path}/${child.id}`} href={`/${props.page.path}/${child.id}`}>
+                            <Link key={`${props.page.path}/${child.id}`} href={`${props.page.path}/${child.id}`}>
                                 <li 
                                     className={styles.menu__li}
                                     key={child.name}

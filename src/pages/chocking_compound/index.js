@@ -10,7 +10,7 @@ const Page = () => (
         Chocking Compound | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <Products name='Chocking Compound'/>
+    <Products name='Chocking Compound' path={'chocking_compound'} />
   </>
 );
 

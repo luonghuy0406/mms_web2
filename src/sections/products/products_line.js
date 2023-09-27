@@ -169,7 +169,7 @@ function Products(props) {
                     <Card className={classes.card}>
                         <Link
                             className={classes.inner}
-                            href="#"
+                            href={`/${props.path}/${item}`}
                             title=""
                         >
                             <Box position='relative' style={{height:'300px'}}>
@@ -205,7 +205,7 @@ function Products(props) {
                                     </Typography>
                                     </div>
                                     <Typography component="span" fontSize="14px" style={{textDecoration: "underline"}}>
-                                    {t("Learn more")}
+                                    Learn more
                                     </Typography>
                                 </Box>
                             </Box>
@@ -245,7 +245,7 @@ const FormContact = () => {
         onClick={handleClickOpen}
         className={classes.button}
       >
-        {t("Contact us")}
+        Contact us
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>

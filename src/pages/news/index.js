@@ -11,7 +11,7 @@ const Page = () => (
         News and Events | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <News name="News and Events" />
+    <News name="News and Events" path='news'/>
   </>
 );
 

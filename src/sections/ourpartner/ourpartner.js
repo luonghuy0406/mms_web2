@@ -21,8 +21,6 @@ function OurPartner() {
 export default OurPartner;
 
 const OurPartnerContent = () => {
-
-  const { t } = useTranslation();
   
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -53,7 +51,7 @@ const OurPartnerContent = () => {
           sx={{ color: "var(--dark-blue)" }}
           fontWeight="bolder"
         >
-          {t("OUR PARTNER")}
+          OUR PARTNER
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>

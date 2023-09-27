@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
 import { useRouter } from 'next/router';
-import useTrans from '@/pages/hooks/useTrans';
+import useTrans from '@/hooks/useTrans';
+import Image from 'next/image';
 
 // ----------------------------------------------------------------------
 
@@ -52,7 +53,7 @@ export default function LanguagePopover() {
           height: 35
         }}
       >
-        <img src={LANGS[lang].icon} alt={LANGS[lang].label} />
+        <Image src={LANGS[lang].icon} alt={LANGS[lang].label} width={35} height={35}/>
       </IconButton>
 
       <Popover

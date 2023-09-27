@@ -167,7 +167,7 @@ export const TopNav = (props) => {
                     <List>
                       {pages.map((text) => (
                         <>
-                          <ListItem key={text.name} disablePadding>
+                          <ListItem key={text.name+"nav"} disablePadding>
                             <ListItemButton>
                               <Link href={text.path}>
                                 <ListItemText primary={text.name} />
@@ -177,8 +177,8 @@ export const TopNav = (props) => {
                           {
                             text.child?.map((child)=>{
                               return (
-                                <ul key={child.name} disablePadding>
-                                    <ListItem key={child.name} disablePadding>
+                                <ul key={child.name +"nav-child"} disablePadding>
+                                    <ListItem disablePadding>
                                       <ListItemButton>
                                         <Link href={`${text.path}/${child.id}`}>
                                           <ListItemText primary={child.name} />
@@ -206,7 +206,8 @@ export const TopNav = (props) => {
               alignItems="center"
               direction="row"
               spacing={2}
-              sx={{margin:'40px !important'}}
+              sx={{margin:'40px !important',display: { xs: "none",md: "none", lg: "flex" },}}
+              
             >
               <Box
                 sx={{
@@ -218,7 +219,7 @@ export const TopNav = (props) => {
               >
                 {pages.map((page) => {
                   return (
-                    <MenuNav key={page.path} page={page}/>
+                    <MenuNav key={page.path+"page"} page={page}/>
                   );
                 })}
               </Box>
