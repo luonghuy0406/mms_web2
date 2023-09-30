@@ -10,4 +10,10 @@ const useTrans = () => {
     return trans
 }
 
+export const getCurrentLang = ()=>{
+    const { locale } = useRouter()
+
+    return locale === 'vi' ? 'vi' : 'en'
+}
+
 export default useTrans

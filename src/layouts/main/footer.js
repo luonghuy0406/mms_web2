@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Grid, Typography, Box, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -10,6 +10,9 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 
 
 function Footer() {
+  useEffect(()=>{
+
+  },[])
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">

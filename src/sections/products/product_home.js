@@ -45,143 +45,153 @@ const useStyles = makeStyles(() => {
 });
 
 function ProductHome(props) {
-useEffect(() => {
-    window.scrollTo(0, 0);
-}, []);
-const classes = useStyles();
-const productRef = useRef() 
-const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-});
-const data = {name:'product1'}
-const logoBrand =''
+    console.log("props",props)
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    const classes = useStyles();
+    const productRef = useRef() 
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0,
+    });
 
-useEffect(() =>{
-    if(inView && props.reverse && !productRef.current.classList.contains('animate__fadeInLeft')){
-        productRef.current.classList.add("animate__fadeInLeft")
-    }else if(inView  && !productRef.current.classList.contains('animate__fadeInRight')){
-        productRef.current.classList.add("animate__fadeInRight")
-    }
-  },[inView])
-return (
-    <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
-        <Container   maxWidth="md" sx={{ p: 2 }}>   
-            <Grid
-                ref={productRef}
-                direction={props.reverse ? 'row-reverse' : 'row'}
-                container
-                classes={{ root: classes.container }}
-                className={"animate__animated animate__delay-0.1s"}
-            >
-                <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>
-                    <Box
-                    component="div"
-                    sx={{
-                        width: "100%",
-                        height: {xs:"fit-content", md:"100%"},
-                        background: "white",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        boxShadow: "0px 0px 1px 1px rgba(0,0,0,0.2)",
-                        position: "relative",
-                    }}
-                    >
-                    <Box
-                        component="img"
+    useEffect(() =>{
+        if(inView && props.reverse && !productRef.current.classList.contains('animate__fadeInLeft')){
+            productRef.current.classList.add("animate__fadeInLeft")
+        }else if(inView  && !productRef.current.classList.contains('animate__fadeInRight')){
+            productRef.current.classList.add("animate__fadeInRight")
+        }
+    },[inView])
+    return (
+        <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
+            <Container   maxWidth="md" sx={{ p: 2 }}>   
+                <Grid
+                    ref={productRef}
+                    direction={props.reverse ? 'row-reverse' : 'row'}
+                    container
+                    classes={{ root: classes.container }}
+                    className={"animate__animated animate__delay-0.1s"}
+                >
+                    <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>
+                        <Box
+                        component="div"
                         sx={{
-                        width: { xs: "60%", md: "90%" },
-                        aspectRatio: " 3/2",
-                        objectFit: "contain",
-                        }}
-                        src={'https://placehold.co/600x400'}
-                    />
-                    <Box
-                        component="img"
-                        sx={{
-                        width: { xs: "70px", md: "100px" },
-                        position: "absolute",
-                        padding: "10px",
-                        top: "0",
-                        left: "0",
-                        }}
-                        src={logoBrand}
-                    />
-                    </Box>
-                </Grid>
-                <Grid item xs={12} md={7} container sx={{paddingLeft:{xs:"0",md:"20px"}}}>
-                    <Grid item xs={12} sx={{ textAlign: "justify" }}>
-                    <Typography
-                        color={"var(--dark-blue)"}
-                        fontFamily={"var(--font-family-header)"}
-                        variant="h6"
-                        component="h6"
-                        fontWeight="bolder"
-                        pb={2}
-                        sx={{ textTransform: "uppercase" }}
-                    >
-                        {data.name.replace("<br>", "")}
-                    </Typography>
-                    <Divider />
-                    <Box pt={1} pb={2} className='ck-content'>
-                        <label
-                        style={{
-                            color: "var(--black)",
-                            fontFamily: "var(--font-family)",
-                        }}
-                        dangerouslySetInnerHTML={{ __html: "<p>Giới thiệu sản phẩm</p><ul><li>Tính năng 1</li><li>Tính năng 2</li><li>…</li></ul>" }}
-                        ></label>
-                    </Box>
-
-                    <Typography
-                        color={"var(--dark-blue)"}
-                        fontFamily={"var(--font-family-header)"}
-                        variant="h6"
-                        component="h6"
-                        fontWeight="bolder"
-                        pb={2}
-                    >
-                        SPECIFICATION
-                    </Typography>
-                    <Divider />
-                    <Box pt={1} pb={2} className='ck-content'>
-                        <label
-                        style={{
-                            color: "var(--black)",
-                            fontFamily: "var(--font-family)",
-                        }}
-                        dangerouslySetInnerHTML={{ __html: "<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>" }}
-                        ></label>
-                        <br />
-                        <br />
-                        {/* {data.brochue && ( */}
-                        <label
-                            style={{
-                            color: "var(--dark-blue)",
-                            fontFamily: "var(--font-family)",
+                            width: "100%",
+                            height: {xs:"fit-content", md:"100%"},
+                            background: "white",
                             display: "flex",
                             alignItems: "center",
-                            }}
+                            justifyContent: "center",
+                            boxShadow: "0px 0px 1px 1px rgba(0,0,0,0.2)",
+                            position: "relative",
+                        }}
                         >
-                            <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
-                            <a
-                            href={data.brochue}
-                            style={{ paddingLeft: "10px" }}
-                            target="_blank"
+                        <Box
+                            component="img"
+                            sx={{
+                            width: { xs: "60%", md: "90%" },
+                            aspectRatio: " 3/2",
+                            objectFit: "contain",
+                            }}
+                            src={props.product.image ? process.env.API_HOST +'/read_image/'+props.product.image.replace('/','%2F') :'https://placehold.co/600x400'}
+                        />
+                        {/* <Box
+                            component="img"
+                            sx={{
+                            width: { xs: "70px", md: "100px" },
+                            position: "absolute",
+                            padding: "10px",
+                            top: "0",
+                            left: "0",
+                            }}
+                            src={logoBrand}
+                        /> */}
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={7} container sx={{paddingLeft:{xs:"0",md:"20px"}}}>
+                        <Grid item xs={12} sx={{ textAlign: "justify" }}>
+                        <Typography
+                            color={"var(--dark-blue)"}
+                            fontFamily={"var(--font-family-header)"}
+                            variant="h5"
+                            component="h5"
+                            fontWeight="bolder"
+                            pb={2}
+                            sx={{ textTransform: "uppercase" }}
+                        >
+                            {props.product.name.replace("<br>", "")}
+                        </Typography>
+                        <Typography
+                            color={"var(--dark-blue)"}
+                            fontFamily={"var(--font-family-header)"}
+                            variant="h6"
+                            component="h6"
+                            fontWeight="bolder"
+                            pb={2}
+                            sx={{ textTransform: "uppercase" }}
+                        >
+                            DESCRIPTION
+                        </Typography>
+                        <Divider />
+                        <Box pt={1} pb={2} className='ck-content'>
+                            <label
+                                style={{
+                                    color: "var(--black)",
+                                    fontFamily: "var(--font-family)",
+                                }}
+                                dangerouslySetInnerHTML={{ __html: props.language =='vi'? props.product.des : props.product.des_en }}
+                            ></label>
+                        </Box>
+
+                        <Typography
+                            color={"var(--dark-blue)"}
+                            fontFamily={"var(--font-family-header)"}
+                            variant="h6"
+                            component="h6"
+                            fontWeight="bolder"
+                            pb={2}
+                        >
+                            SPECIFICATION
+                        </Typography>
+                        <Divider />
+                        <Box pt={1} pb={2} className='ck-content'>
+                            <label
+                                style={{
+                                    color: "var(--black)",
+                                    fontFamily: "var(--font-family)",
+                                }}
+                                dangerouslySetInnerHTML={{ __html: props.language =='vi'? props.product.spec : props.product.spec_en }}
+                            ></label>
+                            <br />
+                            <br />
+                            {/* {data.brochue && ( */}
+                            <label
+                                style={{
+                                color: "var(--dark-blue)",
+                                fontFamily: "var(--font-family)",
+                                display: "flex",
+                                alignItems: "center",
+                                }}
                             >
-                            Product brochure
-                            </a>
-                        </label>
-                        {/* )} */}
-                    </Box>
+                                <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
+                                <a
+                                href={props.product.brochue}
+                                style={{ paddingLeft: "10px" }}
+                                target="_blank"
+                                >
+                                Product brochure
+                                </a>
+                            </label>
+                            {/* )} */}
+                        </Box>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-        </Container>
-        <Divider/>
-    </Grid>
-);
+            </Container>
+            <Divider/>
+        </Grid>
+    );
 }
 
 export default ProductHome;

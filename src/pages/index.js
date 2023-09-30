@@ -1,3 +1,5 @@
+
+import { useContext, useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid, Typography} from '@mui/material';
 import { Layout as MainLayout} from 'src/layouts/main/layout';
@@ -7,7 +9,9 @@ import { useInView } from 'react-intersection-observer';
 import AboutUs from '@/sections/aboutus/aboutus';
 import OurPartner from '@/sections/ourpartner/ourpartner';
 import ProductHome from '@/sections/products/product_home';
-import useTrans from '../hooks/useTrans';
+import useTrans, { getCurrentLang } from '../hooks/useTrans';
+import axios from 'axios';
+import { LanguageContext } from '@/contexts/context';
 
 
 const Page = () => {
@@ -15,6 +19,18 @@ const Page = () => {
     /* Optional options */
     threshold: 0,
   });
+
+  const { language, changeLanguage } = useContext(LanguageContext);
+  const [products,setProducts] = useState([])
+  useEffect(()=>{
+    axios({
+      method: 'get',
+      url: process.env.API_HOST +'/product/list',
+    })
+      .then(function (response) {
+        setProducts(response.data.results)
+      });
+  },[])
   const trans = useTrans()
 
   return (
@@ -141,11 +157,11 @@ const Page = () => {
                 </Typography>
                 <span className={"line-brand"}></span>
             </Grid>
-            <ProductHome/>
-            <ProductHome reverse={true}/>
-            <ProductHome/>
-            <ProductHome reverse={true}/>
-            <ProductHome/>
+            {
+              products?.map((product,index)=>{
+                return <ProductHome product={product} language={language} reverse={index%2==0}/>
+              })
+            }
           </Grid>
         </Container>
       </Grid>

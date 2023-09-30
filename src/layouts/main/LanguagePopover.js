@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 // @mui
-import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
 import { useRouter } from 'next/router';
-import useTrans from '@/hooks/useTrans';
+import useTrans, { getCurrentLang } from '@/hooks/useTrans';
 import Image from 'next/image';
+import { LanguageContext } from '@/contexts/context';
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +25,11 @@ const LANGS = {
 
 export default function LanguagePopover() {
   const [open, setOpen] = useState(null);
-  const [lang, setLang] = useState('en');
+  const { language, changeLanguage } = useContext(LanguageContext);
+  const handleLanguageChange = () => {
+    const newLanguage = language === 'en' ? 'vi' : 'en';
+    changeLanguage(newLanguage);
+  };
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -34,12 +38,11 @@ export default function LanguagePopover() {
   const handleClose = () => {
     setOpen(null);
   };
-  const trans = useTrans()
   const router = useRouter()
 
   const { pathname, asPath, query } = router
   const changeLang = (lang) => {
-    
+    handleLanguageChange()
     // change just the locale and maintain all other route information including href's query
     router.push({ pathname, query }, asPath, { locale: lang })
   }
@@ -53,7 +56,7 @@ export default function LanguagePopover() {
           height: 35
         }}
       >
-        <Image src={LANGS[lang].icon} alt={LANGS[lang].label} width={35} height={35}/>
+        <Image src={LANGS[language].icon} alt={LANGS[language].label} width={35} height={35}/>
       </IconButton>
 
       <Popover
@@ -80,10 +83,9 @@ export default function LanguagePopover() {
           {Object.values(LANGS).map((option) => (
             <MenuItem 
               key={option.value} 
-              selected={option.value === LANGS[lang].value} 
+              selected={option.value === LANGS[language].value} 
               onClick={() => {
                 handleClose()
-                setLang(option.value)
                 changeLang(option.value)
               }}>
               <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} />

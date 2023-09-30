@@ -34,11 +34,13 @@ const pages = [
     child: []
   }, 
   {
+    id: '1',
     name: 'chocking_compound',
     path: '/chocking_compound',
     child: []
   }, 
   {
+    id: '2',
     name: 'auxiliary_machinery',
     path: '/auxiliary_machinery',
     child: [
@@ -57,11 +59,13 @@ const pages = [
     ]
   }, 
   {
+    id: '3',
     name: 'viega_pipe_fittings',
     path: '/viega_pipe_fittings',
     child: []
   }, 
   {
+    id: '4',
     name: 'viton_fkm_rubber_packing_sheet',
     path: '/viton_fkm_rubber_packing_sheet',
     child: []
@@ -166,7 +170,7 @@ export const TopNav = (props) => {
                   >
                     <List>
                       {pages.map((text) => (
-                        <>
+                        <div key={text.name+"nav-wrap"}>
                           <ListItem key={text.name+"nav"} disablePadding>
                             <ListItemButton>
                               <Link href={text.path}>
@@ -189,7 +193,7 @@ export const TopNav = (props) => {
                               )
                             })
                           }
-                        </>
+                        </div>
                       ))}
                     </List>
                   </Box>
