@@ -6,8 +6,10 @@ import { useInView } from "react-intersection-observer";
 import $ from 'jquery'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import useTrans from "@/hooks/useTrans";
 
 function AboutUs() {
+  
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
       <Container maxWidth="md" sx={{ p: 2 }}>
@@ -20,6 +22,7 @@ function AboutUs() {
 export default AboutUs;
 
 const AboutUsContent = () => {
+  const trans = useTrans()
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
@@ -55,7 +58,7 @@ const AboutUsContent = () => {
           sx={{ color: "var(--dark-blue)" }}
           fontWeight="bolder"
         >
-          ABOUT US
+          {trans['About Us']}
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>
@@ -150,7 +153,7 @@ const AboutUsContent = () => {
           </Stack>
       </Grid>
 
-      <Grid  id="aboutus_brand" className={"animate__animated animate__delay-0.1s "} item xs={12} sx={{pt:3}}>
+      {/* <Grid  id="aboutus_brand" className={"animate__animated animate__delay-0.1s "} item xs={12} sx={{pt:3}}>
         <Carousel
             additionalTransfrom={0}
             arrows={false}
@@ -231,7 +234,7 @@ const AboutUsContent = () => {
                     <img  alt='logo' src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
                 </Box>
         </Carousel>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

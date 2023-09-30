@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import useTrans from "@/hooks/useTrans";
 
 
 function OurPartner() {
@@ -21,7 +22,7 @@ function OurPartner() {
 export default OurPartner;
 
 const OurPartnerContent = () => {
-  
+  const trans = useTrans()
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
@@ -51,7 +52,7 @@ const OurPartnerContent = () => {
           sx={{ color: "var(--dark-blue)" }}
           fontWeight="bolder"
         >
-          OUR PARTNER
+          {trans["Our Partner"]}
         </Typography>
         <span className={"line-brand"}></span>
       </Grid>

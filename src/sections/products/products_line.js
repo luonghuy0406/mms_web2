@@ -22,6 +22,7 @@ import { useInView } from "react-intersection-observer";
 // import { dataProducts } from "./data";
 import { makeStyles } from "@material-ui/core";
 import Link from "next/link";
+import { convertPath } from "@/layouts/main/top-nav";
 
 const useStyles = makeStyles((props) => ({
   container: {
@@ -153,7 +154,7 @@ function Products(props) {
                 pt={5}
                 className={"animate__animated animate__delay"}
             >
-                {[1,2,3,4].map((item, index) => {
+                {props.childs.map((item, index) => {
                 return (
                     // <Link to={`/product/${item.id}`}>
                     <Grid
@@ -169,7 +170,7 @@ function Products(props) {
                     <Card className={classes.card}>
                         <Link
                             className={classes.inner}
-                            href={`/${props.path}/${item}`}
+                            href={`/${props.path}/${convertPath(item.name)}-${item.id_product}`}
                             title=""
                         >
                             <Box position='relative' style={{height:'300px'}}>
@@ -178,7 +179,7 @@ function Products(props) {
                                     sx={{
                                         width: '100%',
                                         height: '200px',
-                                        backgroundImage: 'url(https://pacificpsc.com/static/media/Valve%20&%20Control.b732fd65.png)',
+                                        backgroundImage: `url(${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',
@@ -201,7 +202,7 @@ function Products(props) {
                                 >
                                     <div style={{minHeight:"60px"}}>
                                     <Typography gutterBottom variant="h6" style={{ textTransform: 'uppercase' }}>
-                                        Product name
+                                        {item.name}
                                     </Typography>
                                     </div>
                                     <Typography component="span" fontSize="14px" style={{textDecoration: "underline"}}>

@@ -16,7 +16,6 @@ const LayoutContainer = styled('div')({
 });
 
 export const Layout = (props) => {
-  console.log(props)
     const { children } = props
     const {products} = children.props
     return (

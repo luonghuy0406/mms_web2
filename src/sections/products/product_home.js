@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import "react-multi-carousel/lib/styles.css";
 import ArticleIcon from "@mui/icons-material/Article";
 import { makeStyles } from "@material-ui/core";
+import useTrans from "@/hooks/useTrans";
 
 const useStyles = makeStyles(() => {
     const theme = useTheme();
@@ -45,6 +46,7 @@ const useStyles = makeStyles(() => {
 });
 
 function ProductHome(props) {
+    const trans = useTrans()
     // useEffect(() => {
     //     window.scrollTo(0, 0);
     // }, []);
@@ -119,7 +121,7 @@ function ProductHome(props) {
                             pb={2}
                             sx={{ textTransform: "uppercase" }}
                         >
-                            {props.product.name.replace("<br>", "")}
+                            {props.product.name}
                         </Typography>
                         <Typography
                             color={"var(--dark-blue)"}
@@ -130,7 +132,7 @@ function ProductHome(props) {
                             pb={2}
                             sx={{ textTransform: "uppercase" }}
                         >
-                            DESCRIPTION
+                            {trans['Descriptions']}
                         </Typography>
                         <Divider />
                         <Box pt={1} pb={2} className='ck-content'>
@@ -143,7 +145,7 @@ function ProductHome(props) {
                             ></label>
                         </Box>
 
-                        <Typography
+                        {/* <Typography
                             color={"var(--dark-blue)"}
                             fontFamily={"var(--font-family-header)"}
                             variant="h6"
@@ -153,9 +155,9 @@ function ProductHome(props) {
                         >
                             SPECIFICATION
                         </Typography>
-                        <Divider />
+                        <Divider /> */}
                         <Box pt={1} pb={2} className='ck-content'>
-                            <label
+                            {/* <label
                                 style={{
                                     color: "var(--black)",
                                     fontFamily: "var(--font-family)",
@@ -163,7 +165,7 @@ function ProductHome(props) {
                                 dangerouslySetInnerHTML={{ __html: props.language =='vi'? props.product.spec : props.product.spec_en }}
                             ></label>
                             <br />
-                            <br />
+                            <br /> */}
                             {/* {data.brochue && ( */}
                             <label
                                 style={{
@@ -179,7 +181,7 @@ function ProductHome(props) {
                                 style={{ paddingLeft: "10px" }}
                                 target="_blank"
                                 >
-                                Product brochure
+                                {trans['Product brochure']}
                                 </a>
                             </label>
                             {/* )} */}

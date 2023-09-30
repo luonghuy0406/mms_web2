@@ -21,12 +21,11 @@ const Page = ({ products }) => {
   });
   const { language, changeLanguage } = useContext(LanguageContext);
   const trans = useTrans()
-
   return (
     <>
       <Head>
         <title>
-          {trans.home.title} | MEKONG MARINE SUPPLY CO., LTD
+          {trans['Home']} | MEKONG MARINE SUPPLY CO., LTD
         </title>
       </Head>
       <Box
@@ -142,7 +141,7 @@ const Page = ({ products }) => {
                 sx={{ color: "var(--dark-blue)" }}
                 fontWeight="bolder"
                 >
-                Products
+                {trans['Products']}
                 </Typography>
                 <span className={"line-brand"}></span>
             </Grid>

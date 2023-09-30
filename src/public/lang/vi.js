@@ -1,14 +1,13 @@
 export default {
-    home: {
-        title: 'Trang chủ'
-    },
-    header:{
-        home: "Trang chủ",
-        aboutus: "Về chúng tôi",
-        chocking_compound: "chocking compound",
-        auxiliary_machinery: "auxiliary machinery",
-        viega_pipe_fittings: "viega pipe & fittings",
-        news : "Tin tức và sự kiện",
-        viton_fkm_rubber_packing_sheet: "Viton/FKM rubber packing sheet"
-    }
+    "Home": "Trang chủ",
+    "About Us": "Về chúng tôi",
+    "Chocking Compound": "Chocking Compound",
+    "Auxiliary Machinery": "Auxiliary Machinery",
+    "Viega Pipe & Fittings": "Viega Pipe & Fittings",
+    "News and Event": "Tin tức & Sự kiện",
+    "Viton/FKM rubber packing sheet": "Viton/FKM rubber packing sheet",
+    "Our Partner" : "Đối tác",
+    "Descriptions" : "Mô tả",
+    "Products": "Sản phẩm",
+    "Product brochure" : "Tài liệu sản phẩm"
 }

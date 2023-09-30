@@ -8,7 +8,7 @@ import {
     Breadcrumbs,
   } from "@mui/material";
   import $ from "jquery";
-  import React, { useEffect, useRef } from "react";
+  import React, { useContext, useEffect, useRef } from "react";
   import { useTranslation } from "react-i18next";
   import { useInView } from "react-intersection-observer";
   import "react-multi-carousel/lib/styles.css";
@@ -22,6 +22,9 @@ import {
   import DialogTitle from "@mui/material/DialogTitle";
 import { makeStyles } from "@material-ui/core";
 import Link from "next/link";
+import { LanguageContext } from "@/contexts/context";
+import SubProduct from "./sub_product";
+import useTrans from "@/hooks/useTrans";
 
   const useStyles = makeStyles(() => {
     const theme = useTheme();
@@ -60,6 +63,8 @@ import Link from "next/link";
   });
   
   function Product(props) {
+    const { language } = useContext(LanguageContext);
+    const trans = useTrans()
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
@@ -68,8 +73,6 @@ import Link from "next/link";
       /* Optional options */
       threshold: 0,
     });
-    const data = {name:'product1'}
-    const logoBrand =''
     
   const headerRef = useRef()
   const productRef = useRef()
@@ -89,13 +92,13 @@ import Link from "next/link";
               className={"animate__animated animate__delay-0.1s"}>
             <Breadcrumbs aria-label="breadcrumb">
               <Link href='/' underline="hover" style={{ textDecoration: "none", color: "gray" }}>
-                Home
+                {trans['Home']}
               </Link>
-              <Link href={`${props.parent}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
-                {props.parent}
+              <Link href={`${props.parentPath}`} underline="hover" style={{ textDecoration: "none", color: "gray" }}>
+                {props.parentName}
               </Link>
               <Typography color="var(--orange)">
-                {props.slug}
+                {props.product[0].name}
               </Typography>
             </Breadcrumbs>
             <div
@@ -120,7 +123,7 @@ import Link from "next/link";
                 fontWeight="bolder"
                 // lineHeight={0}
               >
-                {props.slug}
+                {props.product[0].name}
               </Typography>
             </div>
           </div>
@@ -151,9 +154,9 @@ import Link from "next/link";
                     aspectRatio: " 3/2",
                     objectFit: "contain",
                   }}
-                  src={'https://placehold.co/600x400'}
+                  src={props.product[0].image}
                 />
-                <Box
+                {/* <Box
                   component="img"
                   sx={{
                     width: { xs: "70px", md: "100px" },
@@ -163,7 +166,7 @@ import Link from "next/link";
                     left: "0",
                   }}
                   src={logoBrand}
-                />
+                /> */}
               </Box>
             </Grid>
             <Grid item xs={12} md={7} container sx={{paddingLeft:{xs:"0",md:"20px"}}}>
@@ -177,7 +180,7 @@ import Link from "next/link";
                   pb={2}
                   sx={{ textTransform: "uppercase" }}
                 >
-                  {data.name.replace("<br>", "")}
+                  {trans['Descriptions']}
                 </Typography>
                 <Divider />
                 <Box pt={1} pb={2} className='ck-content'>
@@ -186,11 +189,11 @@ import Link from "next/link";
                       color: "var(--black)",
                       fontFamily: "var(--font-family)",
                     }}
-                    dangerouslySetInnerHTML={{ __html: '<p>Giới thiệu sản phẩm</p><ul><li>Tính năng 1</li><li>Tính năng 2</li><li>…</li></ul>' }}
+                    dangerouslySetInnerHTML={{ __html: language =='vi'? props.product[0].des : props.product[0].des_en }}
                   ></label>
                 </Box>
   
-                <Typography
+                {/* <Typography
                   color={"var(--dark-blue)"}
                   fontFamily={"var(--font-family-header)"}
                   variant="h6"
@@ -200,9 +203,9 @@ import Link from "next/link";
                 >
                   SPECIFICATION
                 </Typography>
-                <Divider />
+                <Divider /> */}
                 <Box pt={1} pb={2} className='ck-content'>
-                  <label
+                  {/* <label
                     style={{
                       color: "var(--black)",
                       fontFamily: "var(--font-family)",
@@ -210,7 +213,7 @@ import Link from "next/link";
                     dangerouslySetInnerHTML={{ __html: '<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>' }}
                   ></label>
                   <br />
-                  <br />
+                  <br /> */}
                   {/* {data.brochue && ( */}
                     <label
                       style={{
@@ -222,22 +225,40 @@ import Link from "next/link";
                     >
                       <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
                       <a
-                        href={data.brochue}
+                        // href={data.brochue}
                         style={{ paddingLeft: "10px" }}
                         target="_blank"
                       >
-                        Product brochure
+                        {trans['Product brochure']}
                       </a>
                     </label>
                   {/* )} */}
                 </Box>
                 <FormContact
                 //   productId={secondId}
-                  content={data.name.replace("<br>", "")}
+                  content={props.product.name}
                 />
               </Grid>
             </Grid>
           </Grid>
+          <Grid container>
+                {
+                props.subProducts.map((sub) => {
+                return (
+                      <Grid
+                      key={sub.name}
+                      item
+                      sx={{p:2}}
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      container
+                      >
+                        {sub.name}
+                      </Grid>
+                )})
+              }
+            </Grid>
         </Container>
       </Grid>
     );

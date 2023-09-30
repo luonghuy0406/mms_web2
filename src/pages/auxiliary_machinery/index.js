@@ -3,7 +3,8 @@ import { Layout as MainLayout} from 'src/layouts/main/layout';
 import Products from '@/sections/products/products_line';
 
 
-const Page = () => {
+const Page = ({products}) => {
+  const childs = products.filter((product) => {return product.id_group == '2'})
   return (
     <>
       <Head>
@@ -11,7 +12,7 @@ const Page = () => {
           Auxiliary Machiery | MEKONG MARINE SUPPLY CO., LTD
         </title>
       </Head>
-      <Products name='Auxiliary Machiery' path={'auxiliary_machinery'}/>
+      <Products name='Auxiliary Machiery' path={'auxiliary_machinery'} childs={childs}/>
     </>
   )};
 
@@ -21,4 +22,9 @@ Page.getLayout = (page) => (
   </MainLayout>
 );
 
+Page.getInitialProps = async (ctx) => {
+  const res = await fetch(process.env.API_HOST +'/product/list')
+  const json = await res.json()
+  return { products: json.results }
+}
 export default Page;

@@ -24,61 +24,47 @@ import LanguagePopover from './LanguagePopover';
 const TOP_NAV_HEIGHT = 150;
 const pages = [
   {
-    name: 'home',
+    name: 'Home',
     path: '/',
     child: []
   }, 
   {
-    name: 'aboutus',
+    name: 'About Us',
     path: '/aboutus',
     child: []
   }, 
   {
     id: '1',
-    name: 'chocking_compound',
+    name: 'Chocking Compound',
     path: '/chocking_compound',
     child: []
   }, 
   {
     id: '2',
-    name: 'auxiliary_machinery',
+    name: 'Auxiliary Machinery',
     path: '/auxiliary_machinery',
-    child: [
-      {
-        id: 1,
-        name: 'Boss Oily water separator'
-      },
-      {
-        id: 2,
-        name: 'Sewage treatment'
-      },
-      {
-        id: 3,
-        name: 'Water Maker RO'
-      }
-    ]
+    child: []
   }, 
   {
     id: '3',
-    name: 'viega_pipe_fittings',
+    name: 'Viega Pipe & Fittings',
     path: '/viega_pipe_fittings',
     child: []
   }, 
   {
     id: '4',
-    name: 'viton_fkm_rubber_packing_sheet',
+    name: 'Viton/FKM rubber packing sheet',
     path: '/viton_fkm_rubber_packing_sheet',
     child: []
   },
   {
-    name: 'news',
+    name: 'News and Event',
     path: '/news',
     child: []
   }, 
 ]
 export const TopNav = (props) => {
   const [openLeft, setOpenLeft] = useState(false);
-  console.log(props)
   const toggleDrawer = (open) => (event) => {setOpenLeft(open);};
   return (
     <Box
@@ -169,22 +155,26 @@ export const TopNav = (props) => {
                     onClick={toggleDrawer(false)}
                   >
                     <List>
-                      {pages.map((text) => (
-                        <div key={text.name+"nav-wrap"}>
-                          <ListItem key={text.name+"nav"} disablePadding>
+                      {pages.map((page) => {
+                        let childs =  props.products?.filter((product) => {
+                          return page.id == product.id_group
+                        })
+                        return (
+                        <div key={page.name+"nav-wrap"}>
+                          <ListItem key={page.name+"nav"} disablePadding>
                             <ListItemButton>
-                              <Link href={text.path}>
-                                <ListItemText primary={text.name} />
+                              <Link href={page.path}>
+                                <ListItemText primary={page.name} />
                               </Link>
                             </ListItemButton>
                           </ListItem>
                           {
-                            text.child?.map((child)=>{
+                           childs?.map((child)=>{
                               return (
                                 <ul key={child.name +"nav-child"} disablePadding>
                                     <ListItem disablePadding>
                                       <ListItemButton>
-                                        <Link href={`${text.path}/${child.id}`}>
+                                        <Link href={`${page.path}/${convertPath(child.name)}-${child.id_product}`}>
                                           <ListItemText primary={child.name} />
                                         </Link>
                                       </ListItemButton>
@@ -194,7 +184,7 @@ export const TopNav = (props) => {
                             })
                           }
                         </div>
-                      ))}
+                      )})}
                     </List>
                   </Box>
                 </Drawer>
@@ -222,8 +212,12 @@ export const TopNav = (props) => {
                 }}
               >
                 {pages.map((page) => {
+                  
+                  let childs =  props.products?.filter((product) => {
+                    return page.id == product.id_group
+                  })
                   return (
-                    <MenuNav key={page.path+"page"} page={page}/>
+                    <MenuNav key={page.path+"page"} page={page} childs={childs}/>
                   );
                 })}
               </Box>
@@ -231,7 +225,7 @@ export const TopNav = (props) => {
             <LanguagePopover/>
           </Stack>
       </Container>
-      </Box>
+    </Box>
   );
 };
 
@@ -239,3 +233,37 @@ TopNav.propTypes = {
   onNavOpen: PropTypes.func
 };
 
+export function convertPath(str) {
+  return toSlug(str);
+}
+function toSlug(str) {
+	// Chuyển hết sang chữ thường
+	str = str.toLowerCase();     
+ 
+	// xóa dấu
+	str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+	str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+	str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+	str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+	str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+	str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+	str = str.replace(/(đ)/g, 'd');
+ 
+	// Xóa ký tự đặc biệt
+	str = str.replace(/([^0-9a-z-\s])/g, '');
+ 
+	// Xóa khoảng trắng thay bằng ký tự -
+	str = str.replace(/(\s+)/g, '-');
+	
+	// Xóa ký tự - liên tiếp
+	str = str.replace(/-+/g, '-');
+ 
+	// xóa phần dự - ở đầu
+	str = str.replace(/^-+/g, '');
+ 
+	// xóa phần dư - ở cuối
+	str = str.replace(/-+$/g, '');
+ 
+	// return
+	return str;
+}

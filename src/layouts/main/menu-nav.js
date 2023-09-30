@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Link from 'next/link';
 import useTrans from '@/hooks/useTrans';
+import { convertPath } from './top-nav';
 
 export default function MenuNav(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -44,11 +45,11 @@ export default function MenuNav(props) {
                     },
                 }}
                 >
-                {trans.header[props.page.name]}
+                {trans[props.page.name]}
             </Typography>
         </Link>
         {
-            props.page.child?.length > 0 &&
+            props.childs?.length > 0 &&
             <ul 
                 style={{
                     position:'absolute',
@@ -61,12 +62,11 @@ export default function MenuNav(props) {
                 }}
             >
                 {
-                    props.page.child.map((child)=>{
+                    props.childs?.map((child)=>{
                         return (
-                            <Link key={`${props.page.path}/${child.id}`} href={`${props.page.path}/${child.id}`}>
+                            <Link key={`${props.page.path}/${convertPath(child.name)}`} href={`${props.page.path}/${convertPath(child.name)}-${child.id_product}`}>
                                 <li 
                                     className={styles.menu__li}
-                                    key={child.name}
                                 >
                                     {child.name}
                                 </li>

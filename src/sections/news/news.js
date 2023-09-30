@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -20,6 +20,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { convertPath } from "@/layouts/main/top-nav";
+import { LanguageContext } from "@/contexts/context";
 // import { dataProducts } from "./data";
 
 const useStyles = makeStyles((theme) => ({
@@ -66,7 +68,19 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+  function sortPostByCreateDate(posts) {
+    // Sorting the posts array by create date
+    posts.sort((a, b) => {
+    const createDateA = new Date(a.cre_date);
+    const createDateB = new Date(b.cre_date);
+    return createDateA - createDateB;
+  });
+    
+    return posts;
+  }
+
 function News(props) {
+  const { language } = useContext(LanguageContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -75,7 +89,7 @@ function News(props) {
     /* Optional options */
     threshold: 0,
   });
-  
+  const posts = sortPostByCreateDate(props.posts)
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
       <Container maxWidth="md" sx={{ p: 2 }}>
@@ -104,20 +118,18 @@ function News(props) {
                 className={"animate__animated animate__delay"}
             >
                 <Grid item xs={12}>
-                    <NewestPost path={props.path} id={1}/>
+                    <NewestPost path={`/${props.path}/${convertPath(language == 'vi' ? posts[0]['name'] : posts[0]['name_en'])}-${posts[0].id_post}`} post={posts[0]} id={posts[0].id_post}/>
                 </Grid>
-                <Grid item xs={6}>
-                    <PostCard path={props.path} id={2}/>
-                </Grid>
-                <Grid item xs={6}>
-                    <PostCard path={props.path} id={3}/>
-                </Grid>
-                <Grid item xs={6}>
-                    <PostCard path={props.path} id={4}/>
-                </Grid>
-                <Grid item xs={6}>
-                    <PostCard path={props.path} id={5}/>
-                </Grid>
+                {
+                  posts?.map((post,index) => {
+                    if(index == 0) return []
+                    return (
+                      <Grid item xs={6}>
+                          <PostCard path={`/${props.path}/${convertPath(language == 'vi' ? post['name'] : post['name_en'])}-${post.id_post}`} id={post.id_post} post={post}/>
+                      </Grid>
+                    )
+                  })
+                }
 
 
             </Grid>
@@ -132,12 +144,13 @@ export default News;
 
 const NewestPost = (props)=>{
   const classes = useStyles();
+  const { language } = useContext(LanguageContext);
   return(
     <Box className={classes.cardNew}> 
       <Link
         className={classes.inner}
-        href={`/${props.path}/${props.id}`}
-        title="NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023"
+        href={`${props.path}`}
+        title={language == 'vi' ? props.post['name'] : props.post['name_en']}
       >
           <Grid
             container
@@ -164,7 +177,7 @@ const NewestPost = (props)=>{
                         fontSize: '25px'
                     }}
                 >
-                    NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023
+                    {language == 'vi' ? props.post['name'] : props.post['name_en']}
                 </Typography>
                 <Typography 
                     sx={{
@@ -173,7 +186,7 @@ const NewestPost = (props)=>{
                         textDecoration:'none !important'
                     }}
                 >
-                    06 Tháng 08, 2023
+                    {convertDate(props.post.cre_date,language)}
                 </Typography>
                 <div className="newsButton" style={{position:'absolute',bottom:'0',right:'0',width:'50px',height:'50px',backgroundColor:'var(--dark-blue)',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   <ArrowForwardIcon sx={{width:'2rem',height:'2rem', color:'var(--white)'}}/>
@@ -190,7 +203,7 @@ const NewestPost = (props)=>{
                           md: '300px',
                           lg: '400px'
                       },
-                      backgroundImage: 'url(https://newtecons.vn/wp-content/uploads/2023/08/MNP_0905-scaled.jpg)',
+                      backgroundImage: `url('${props.post.image}')`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center'
@@ -208,13 +221,13 @@ const NewestPost = (props)=>{
 
 const PostCard = (props) => {
   const classes = useStyles();
-
+  const { language } = useContext(LanguageContext);
   return (
     <Card className={classes.card} sx={{borderRadius:'0px', boxShadow:'unset'}}>
       <Link
         className={classes.inner}
-        href={`/${props.path}/${props.id}`}
-        title="NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023"
+        href={`${props.path}`}
+        title={language == 'vi' ? props.post['name'] : props.post['name_en']}
       >
         <Box position='relative'>
             <Box
@@ -225,7 +238,7 @@ const PostCard = (props) => {
                         md: '300px',
                         lg: '250px'
                     },
-                    backgroundImage: 'linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url(https://newtecons.vn/wp-content/uploads/2023/08/MNP_0905-scaled.jpg)',
+                    backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('${props.post.image}')`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
@@ -252,7 +265,7 @@ const PostCard = (props) => {
                             textDecoration:'none !important'
                         }}
                     >
-                        06 Tháng 08, 2023
+                        {convertDate(props.post.cre_date,language)}
                     </Typography>
                     <Typography 
                         variant="h6"
@@ -264,7 +277,7 @@ const PostCard = (props) => {
                             textOverflow: 'ellipsis', 
                         }}
                     >
-                        NEWTECONS TỔ CHỨC CHUỖI HOẠT ĐỘNG CHÀO MỪNG NGÀY TRUYỀN THỐNG 2023
+                        {language == 'vi' ? props.post['name'] : props.post['name_en']}
                     </Typography>
             </Box>
         </Box>
@@ -273,49 +286,15 @@ const PostCard = (props) => {
   );
 };
 
-
-const FormContact = () => {
-  const [open, setOpen] = React.useState(false);
-  const classes = useStyles();
-  const handleClickOpen = () => {
-    setOpen(true);
+const convertDate = (date,locale)=>{
+  const currentDate = new Date(date);
+  const options = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric'
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div>
-      <Button
-        variant="contained"
-        onClick={handleClickOpen}
-        className={classes.button}
-      >
-        Contact us
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
-        </DialogActions>
-      </Dialog>
-    </div>
-  );
-};
+  const formattedDate = currentDate.toLocaleDateString(locale =='vi' ? 'vi-VN' : 'en-US' , options);
+  return formattedDate
+}
