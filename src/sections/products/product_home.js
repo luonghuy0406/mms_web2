@@ -45,11 +45,10 @@ const useStyles = makeStyles(() => {
 });
 
 function ProductHome(props) {
-    console.log("props",props)
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const classes = useStyles();
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // }, []);
+    // const classes = useStyles();
     const productRef = useRef() 
     const { ref, inView, entry } = useInView({
         /* Optional options */
@@ -64,13 +63,13 @@ function ProductHome(props) {
         }
     },[inView])
     return (
-        <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
+        <Grid item md={12}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
             <Container   maxWidth="md" sx={{ p: 2 }}>   
                 <Grid
-                    ref={productRef}
+                    // ref={productRef}
                     direction={props.reverse ? 'row-reverse' : 'row'}
                     container
-                    classes={{ root: classes.container }}
+                    // classes={{ root: classes.container }}
                     className={"animate__animated animate__delay-0.1s"}
                 >
                     <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>

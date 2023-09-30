@@ -14,23 +14,12 @@ import axios from 'axios';
 import { LanguageContext } from '@/contexts/context';
 
 
-const Page = () => {
+const Page = ({ products }) => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
   });
-
   const { language, changeLanguage } = useContext(LanguageContext);
-  const [products,setProducts] = useState([])
-  useEffect(()=>{
-    axios({
-      method: 'get',
-      url: process.env.API_HOST +'/product/list',
-    })
-      .then(function (response) {
-        setProducts(response.data.results)
-      });
-  },[])
   const trans = useTrans()
 
   return (
@@ -159,7 +148,7 @@ const Page = () => {
             </Grid>
             {
               products?.map((product,index)=>{
-                return <ProductHome product={product} language={language} reverse={index%2==0}/>
+                return <ProductHome key={product.name+index} product={product} language={language} reverse={index%2==0}/>
               })
             }
           </Grid>
@@ -175,4 +164,10 @@ Page.getLayout = (page) => (
   </MainLayout>
 );
 
-export default Page;
+Page.getInitialProps = async (ctx) => {
+  const res = await fetch(process.env.API_HOST +'/product/list')
+  const json = await res.json()
+  return { products: json.results }
+}
+ 
+export default Page

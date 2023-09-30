@@ -78,7 +78,7 @@ const pages = [
 ]
 export const TopNav = (props) => {
   const [openLeft, setOpenLeft] = useState(false);
-
+  console.log(props)
   const toggleDrawer = (open) => (event) => {setOpenLeft(open);};
   return (
     <Box
@@ -238,3 +238,4 @@ export const TopNav = (props) => {
 TopNav.propTypes = {
   onNavOpen: PropTypes.func
 };
+
