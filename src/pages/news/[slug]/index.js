@@ -45,7 +45,7 @@ const Page = ({posts}) => {
                             md: '200px',
                             lg: '300px'
                         },
-                        backgroundImage: `url('${post[0].image})`,
+                        backgroundImage: `url('${process.env.API_HOST}/read_image/${post[0].image})`,
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center'

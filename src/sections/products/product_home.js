@@ -47,10 +47,10 @@ const useStyles = makeStyles(() => {
 
 function ProductHome(props) {
     const trans = useTrans()
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, []);
-    // const classes = useStyles();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    const classes = useStyles();
     const productRef = useRef() 
     const { ref, inView, entry } = useInView({
         /* Optional options */
@@ -65,13 +65,13 @@ function ProductHome(props) {
         }
     },[inView])
     return (
-        <Grid item md={12}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
-            <Container   maxWidth="md" sx={{ p: 2 }}>   
+        <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
+            <Container maxWidth="md" sx={{ p: 2 }}>
                 <Grid
-                    // ref={productRef}
+                    ref={productRef}
                     direction={props.reverse ? 'row-reverse' : 'row'}
                     container
-                    // classes={{ root: classes.container }}
+                    classes={{ root: classes.container }}
                     className={"animate__animated animate__delay-0.1s"}
                 >
                     <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>
@@ -95,7 +95,7 @@ function ProductHome(props) {
                             aspectRatio: " 3/2",
                             objectFit: "contain",
                             }}
-                            src={props.product.image ? process.env.API_HOST +'/read_image/'+props.product.image.replace('/','%2F') :'https://placehold.co/600x400'}
+                            src={process.env.API_HOST +'/read_image/'+props.product.image}
                         />
                         {/* <Box
                             component="img"

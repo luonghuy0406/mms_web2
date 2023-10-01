@@ -9,5 +9,8 @@ export default {
     "Our Partner" : "Đối tác",
     "Descriptions" : "Mô tả",
     "Products": "Sản phẩm",
-    "Product brochure" : "Tài liệu sản phẩm"
+    "Product brochure" : "Tài liệu sản phẩm",
+    "Contact us"  :"Liên hệ",
+    "CANCEL" : "HUỶ",
+    "SEND" : "GỬI"
 }

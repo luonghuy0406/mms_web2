@@ -1,12 +1,12 @@
 // context.js
 
-import { getCurrentLang } from '@/hooks/useTrans';
+import { GetCurrentLang } from '@/hooks/useTrans';
 import React, { createContext, useState } from 'react';
 
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(getCurrentLang());
+  const [language, setLanguage] = useState(GetCurrentLang());
 
   const changeLanguage = (newLanguage) => {
     setLanguage(newLanguage);

@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 // @mui
 import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
 import { useRouter } from 'next/router';
-import useTrans, { getCurrentLang } from '@/hooks/useTrans';
 import Image from 'next/image';
 import { LanguageContext } from '@/contexts/context';
 

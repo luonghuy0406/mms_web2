@@ -124,7 +124,7 @@ function News(props) {
                   posts?.map((post,index) => {
                     if(index == 0) return []
                     return (
-                      <Grid item xs={6}>
+                      <Grid item xs={6} key={`${convertPath(post['name_en'])}-${post.id_post}`}>
                           <PostCard path={`/${props.path}/${convertPath(language == 'vi' ? post['name'] : post['name_en'])}-${post.id_post}`} id={post.id_post} post={post}/>
                       </Grid>
                     )
@@ -203,7 +203,7 @@ const NewestPost = (props)=>{
                           md: '300px',
                           lg: '400px'
                       },
-                      backgroundImage: `url('${props.post.image}')`,
+                      backgroundImage: `url('${process.env.API_HOST}/read_image/${props.post.image}')`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center'
@@ -238,7 +238,7 @@ const PostCard = (props) => {
                         md: '300px',
                         lg: '250px'
                     },
-                    backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('${props.post.image}')`,
+                    backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('${process.env.API_HOST}/read_image/${props.post.image}')`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',

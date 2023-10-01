@@ -9,5 +9,8 @@ export default {
     "Our Partner" : "Our Partner",
     "Descriptions" : "Descriptions",
     "Products": "Products",
-    "Product brochure": "Product brochure"
+    "Product brochure": "Product brochure",
+    "Contact us"  :"Contact us",
+    "CANCEL" : "CANCEL",
+    "SEND" : "SEND"
 }

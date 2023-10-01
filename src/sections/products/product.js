@@ -154,7 +154,7 @@ import useTrans from "@/hooks/useTrans";
                     aspectRatio: " 3/2",
                     objectFit: "contain",
                   }}
-                  src={props.product[0].image}
+                  src={`${process.env.API_HOST}/read_image/${props.product[0].image}`}
                 />
                 {/* <Box
                   component="img"
@@ -254,7 +254,7 @@ import useTrans from "@/hooks/useTrans";
                       md={4}
                       container
                       >
-                        {sub.name}
+                        <SubProduct product={sub}/>
                       </Grid>
                 )})
               }
@@ -266,6 +266,7 @@ import useTrans from "@/hooks/useTrans";
   
   export default Product;
   const FormContact = ({ ...props }) => {
+    const trans = useTrans()
     const [open, setOpen] = React.useState(false);
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
@@ -324,7 +325,7 @@ import useTrans from "@/hooks/useTrans";
           onClick={handleClickOpen}
           className={classes.button}
         >
-          Contact us
+          {trans['Contact us']}
         </Button>
         <Dialog open={open} onClose={handleClose}>
           <form id={"send-mail-form" + props.productId}>
@@ -335,7 +336,7 @@ import useTrans from "@/hooks/useTrans";
                 textAlign: "center",
               }}
             >
-              Contact us
+              {trans['Contact us']}
             </DialogTitle>
             <DialogContent sx={{ paddingTop: "24px !important" }}>
               <TextField
@@ -413,8 +414,8 @@ import useTrans from "@/hooks/useTrans";
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>CANCEL</Button>
-              <Button onClick={handleSendMail}>SEND</Button>
+              <Button onClick={handleClose}>{trans['CANCEL']}</Button>
+              <Button onClick={handleSendMail}>{trans['SEND']}</Button>
             </DialogActions>
           </form>
         </Dialog>

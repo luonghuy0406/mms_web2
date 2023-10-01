@@ -9,17 +9,17 @@ import { useInView } from 'react-intersection-observer';
 import AboutUs from '@/sections/aboutus/aboutus';
 import OurPartner from '@/sections/ourpartner/ourpartner';
 import ProductHome from '@/sections/products/product_home';
-import useTrans, { getCurrentLang } from '../hooks/useTrans';
+import useTrans from '../hooks/useTrans';
 import axios from 'axios';
 import { LanguageContext } from '@/contexts/context';
 
 
-const Page = ({ products }) => {
+const Page = ({ products, banners }) => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
   });
-  const { language, changeLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
   const trans = useTrans()
   return (
     <>
@@ -94,16 +94,15 @@ const Page = ({ products }) => {
           swipeable
         >
       {
-          [1,2,3,4,5].map((id)=>{
+          banners.map((image)=>{
             return(
               <Box
-                key={'image'+id}
+                key={'image'+image.id_bn}
                 sx={{
                   display: "block",
                   margin: "auto",
                   width: "100%",
-                  backgroundImage:
-                    'url("https://static.wixstatic.com/media/3eafc0_3698a0af068d45d6801f98a73da081a6~mv2.jpg/v1/fill/w_1198,h_874,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/3eafc0_3698a0af068d45d6801f98a73da081a6~mv2.jpg")',
+                  backgroundImage:`url("${process.env.API_HOST}/read_image/${image.link}")`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -145,12 +144,13 @@ const Page = ({ products }) => {
                 </Typography>
                 <span className={"line-brand"}></span>
             </Grid>
-            {
-              products?.map((product,index)=>{
-                return <ProductHome key={product.name+index} product={product} language={language} reverse={index%2==0}/>
-              })
-            }
+            
           </Grid>
+          {
+            products?.map((product,index)=>{
+              return <ProductHome key={product.name+index} product={product} language={language} reverse={index%2==0}/>
+            })
+          }
         </Container>
       </Grid>
      
@@ -166,7 +166,9 @@ Page.getLayout = (page) => (
 Page.getInitialProps = async (ctx) => {
   const res = await fetch(process.env.API_HOST +'/product/list')
   const json = await res.json()
-  return { products: json.results }
+  const resBanner = await fetch(process.env.API_HOST +'/banner/list')
+  const jsonBanner = await resBanner.json()
+  return { products: json.results, banners : jsonBanner.results }
 }
  
 export default Page

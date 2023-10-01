@@ -158,7 +158,7 @@ function Products(props) {
                 return (
                     // <Link to={`/product/${item.id}`}>
                     <Grid
-                    key={'product-line'+item}
+                    key={`${convertPath(item.name)}-${item.id_product}`}
                     item
                     sx={{p:2}}
                     xs={12}
@@ -179,7 +179,7 @@ function Products(props) {
                                     sx={{
                                         width: '100%',
                                         height: '200px',
-                                        backgroundImage: `url(${item.image})`,
+                                        backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',

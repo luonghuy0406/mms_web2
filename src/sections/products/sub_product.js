@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import {
+  Box,
   Grid,
+  Typography,
 } from "@mui/material";
 import 'animate.css'
 import { useTranslation } from "react-i18next";
@@ -11,12 +13,21 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Image from "next/image";
+import useTrans from "@/hooks/useTrans";
 
-function SubProduct(props) {
+function SubProduct({product}) {
+  const trans = useTrans()
   return (
-    <Grid item md={12} sx={{ padding: 0 }}>
-      asaasd
-    </Grid>
+    <Box sx={{display:'flex', alignItems:'center', flexDirection: 'column', padding: 1}}>
+      <img  src={`${process.env.API_HOST}/read_image/${product.image}`} width="300" height="300" alt={trans == 'vi' ? product.name : product.name_en}/>
+      <Typography fontWeight={'bold'}>
+        {trans == 'vi' ? product.name : product.name_en}
+      </Typography>
+      <Typography>
+        {trans == 'vi' ? product.content : product.content_en}
+      </Typography>
+    </Box>
   );
 }
 

@@ -10,7 +10,7 @@ const Page = ({products,subProducts}) => {
     const { slug } = router.query;
     const product = products.filter((product) => {return `${convertPath(product.name)}-${product.id_product}` == slug})
     
-    const sub = subProducts.filter((p) => {return product[0].id_product == p.id_product})
+    const sub = subProducts.filter((p) => {return product[0]?.id_product == p.id_product})
     return(
         <>
             <Head>

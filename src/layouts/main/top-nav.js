@@ -164,7 +164,7 @@ export const TopNav = (props) => {
                           <ListItem key={page.name+"nav"} disablePadding>
                             <ListItemButton>
                               <Link href={page.path}>
-                                <ListItemText primary={page.name} />
+                                <ListItemText sx={[{color:(theme)=> theme.color.darkBlue, fontWeight: 700}, {'&:hover':{color:(theme)=>{theme.color.orange}}}]} primary={page.name} />
                               </Link>
                             </ListItemButton>
                           </ListItem>
@@ -175,7 +175,7 @@ export const TopNav = (props) => {
                                     <ListItem disablePadding>
                                       <ListItemButton>
                                         <Link href={`${page.path}/${convertPath(child.name)}-${child.id_product}`}>
-                                          <ListItemText primary={child.name} />
+                                          <ListItemText sx={[{color:(theme)=> theme.color.darkBlue, fontWeight: 700}, {'&:hover':{color:(theme)=>{theme.color.orange}}}]} primary={child.name} />
                                         </Link>
                                       </ListItemButton>
                                     </ListItem>
