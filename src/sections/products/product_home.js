@@ -1,13 +1,14 @@
 import {Box, Container, Divider, Grid, Typography, useTheme } from "@mui/material";
 import $ from 'jquery'
 import 'animate.css';
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import "react-multi-carousel/lib/styles.css";
 import ArticleIcon from "@mui/icons-material/Article";
 import { makeStyles } from "@material-ui/core";
 import useTrans from "@/hooks/useTrans";
+import { LanguageContext } from "@/contexts/context";
 
 const useStyles = makeStyles(() => {
     const theme = useTheme();
@@ -46,6 +47,7 @@ const useStyles = makeStyles(() => {
 });
 
 function ProductHome(props) {
+    const { language } = useContext(LanguageContext);
     const trans = useTrans()
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -121,7 +123,7 @@ function ProductHome(props) {
                             pb={2}
                             sx={{ textTransform: "uppercase" }}
                         >
-                            {props.product.name}
+                            {language =='vi'? (props.product.name || props.product.name_en) : (props.product.name_en || props.product.name)}
                         </Typography>
                         <Typography
                             color={"var(--dark-blue)"}
@@ -130,18 +132,19 @@ function ProductHome(props) {
                             component="h6"
                             fontWeight="bolder"
                             pb={2}
+                            pl={2}
                             sx={{ textTransform: "uppercase" }}
                         >
                             {trans['Descriptions']}
                         </Typography>
                         <Divider />
-                        <Box pt={1} pb={2} className='ck-content'>
+                        <Box p={2} className='ck-content'>
                             <label
                                 style={{
                                     color: "var(--black)",
                                     fontFamily: "var(--font-family)",
                                 }}
-                                dangerouslySetInnerHTML={{ __html: props.language =='vi'? props.product.des : props.product.des_en }}
+                                dangerouslySetInnerHTML={{ __html: props.language =='vi'? (props.product.des || props.product.des_en) : (props.product.des_en || props.product.des)}}
                             ></label>
                         </Box>
 
@@ -156,7 +159,7 @@ function ProductHome(props) {
                             SPECIFICATION
                         </Typography>
                         <Divider /> */}
-                        <Box pt={1} pb={2} className='ck-content'>
+                        <Box p={2} className='ck-content'>
                             {/* <label
                                 style={{
                                     color: "var(--black)",
@@ -177,9 +180,9 @@ function ProductHome(props) {
                             >
                                 <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
                                 <a
-                                href={props.product.brochue}
-                                style={{ paddingLeft: "10px" }}
-                                target="_blank"
+                                    href={props.product.brochue}
+                                    style={{ paddingLeft: "10px" }}
+                                    target="_blank"
                                 >
                                 {trans['Product brochure']}
                                 </a>

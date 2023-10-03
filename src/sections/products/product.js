@@ -123,7 +123,7 @@ import useTrans from "@/hooks/useTrans";
                 fontWeight="bolder"
                 // lineHeight={0}
               >
-                {props.product[0].name}
+                {language =='vi'? (props.product[0].name || props.product[0].name_en) : (props.product[0].name_en || props.product[0].name)}
               </Typography>
             </div>
           </div>
@@ -178,18 +178,19 @@ import useTrans from "@/hooks/useTrans";
                   component="h6"
                   fontWeight="bolder"
                   pb={2}
+                  pl={2}
                   sx={{ textTransform: "uppercase" }}
                 >
                   {trans['Descriptions']}
                 </Typography>
                 <Divider />
-                <Box pt={1} pb={2} className='ck-content'>
+                <Box p={2} className='ck-content'>
                   <label
                     style={{
                       color: "var(--black)",
                       fontFamily: "var(--font-family)",
                     }}
-                    dangerouslySetInnerHTML={{ __html: language =='vi'? props.product[0].des : props.product[0].des_en }}
+                    dangerouslySetInnerHTML={{ __html: language =='vi'? (props.product[0].des || props.product[0].des_en) : (props.product[0].des_en || props.product[0].des) }}
                   ></label>
                 </Box>
   
@@ -204,7 +205,7 @@ import useTrans from "@/hooks/useTrans";
                   SPECIFICATION
                 </Typography>
                 <Divider /> */}
-                <Box pt={1} pb={2} className='ck-content'>
+                <Box p={2} className='ck-content'>
                   {/* <label
                     style={{
                       color: "var(--black)",
@@ -225,7 +226,7 @@ import useTrans from "@/hooks/useTrans";
                     >
                       <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
                       <a
-                        // href={data.brochue}
+                        href={props.product.brochue}
                         style={{ paddingLeft: "10px" }}
                         target="_blank"
                       >

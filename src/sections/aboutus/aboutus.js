@@ -1,19 +1,19 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import 'animate.css';
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import $ from 'jquery'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useTrans from "@/hooks/useTrans";
+import { LanguageContext } from "@/contexts/context";
 
-function AboutUs() {
-  
+function AboutUs(props) {
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
       <Container maxWidth="md" sx={{ p: 2 }}>
-          <AboutUsContent />
+          <AboutUsContent aboutus={props.aboutus}/>
       </Container>
     </Grid>
   );
@@ -21,7 +21,8 @@ function AboutUs() {
 
 export default AboutUs;
 
-const AboutUsContent = () => {
+const AboutUsContent = (props) => {
+  const { language } = useContext(LanguageContext);
   const trans = useTrans()
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -72,7 +73,7 @@ const AboutUsContent = () => {
               >
                 <img
                   alt="Under development"
-                  src="https://placehold.co/450x500"
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image1}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -90,7 +91,7 @@ const AboutUsContent = () => {
               >
                 <img
                   alt="Under development"
-                  src="https://placehold.co/450x500"
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image2}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -110,7 +111,7 @@ const AboutUsContent = () => {
               >
                 <img
                   alt="Under development"
-                  src="https://placehold.co/450x600"
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image3}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -144,10 +145,7 @@ const AboutUsContent = () => {
             </Stack>
             <Stack spacing={2} sx={{pt:2}}>
               <Typography>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-              </Typography>
-              <Typography>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                {language =='vi'? (props.aboutus?.content || props.aboutus?.content_en) : (props.aboutus?.content_en || props.aboutus?.content)}
               </Typography>
             </Stack>
           </Stack>

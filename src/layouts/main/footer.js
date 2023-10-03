@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import { Container, Grid, Typography, Box, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -7,12 +7,25 @@ import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import useTrans from "@/hooks/useTrans";
+import { LanguageContext } from "@/contexts/context";
 
 
-function Footer() {
-  useEffect(()=>{
-
+function Footer({aa}) {
+  const trans = useTrans()
+  const [ft,setFt] = useState('')
+  const { language } = useContext(LanguageContext);
+  useEffect(()=>{var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("http://localhost:3001/webinf/list", requestOptions)
+    .then(response => response.text())
+    .then(result => {setFt(JSON.parse(result).results)})
+    .catch(error => console.log('error', error));
   },[])
+  console.log(ft[0])
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">
@@ -52,7 +65,7 @@ function Footer() {
               color="var(--dark-blue)"
               fontWeight="bolder"
             >
-              HEAD OFFICE
+              {(trans["HEAD OFFICE"])}
             </Typography>
             <label
               style={{
@@ -66,7 +79,7 @@ function Footer() {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: "16 Yen The St, Ward 2, Tan Binh Dist., HCMC, Viet Nam",
+                  __html: language == 'vi'? (ft[0].adress || ft[0].adress_en) : (ft[0].adress_en || ft[0].adress),
                 }}
               ></label>
             </label>
@@ -79,7 +92,7 @@ function Footer() {
               }}
             >
               <PhoneIcon style={{ marginBottom: "5px" }} />
-              <label style={{ paddingLeft: "15px" }}>+84 123 456 789</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0].phone_num}</label>
             </label>
             <label
               style={{
@@ -90,7 +103,40 @@ function Footer() {
               }}
             >
               <EmailIcon style={{ marginBottom: "3px" }} />
-              <label style={{ paddingLeft: "15px" }}>info@mms.com</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0].email}</label>
+            </label>
+            <label
+              style={{
+                fontFamily: "var(--font-family)",
+                color: "var(--dark-blue)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <FacebookIcon style={{ marginBottom: "3px" }} />
+              <label style={{ paddingLeft: "15px" }}>{ft[0].link1}</label>
+            </label>
+            <label
+              style={{
+                fontFamily: "var(--font-family)",
+                color: "var(--dark-blue)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <YouTubeIcon style={{ marginBottom: "3px" }} />
+              <label style={{ paddingLeft: "15px" }}>{ft[0].link2}</label>
+            </label>
+            <label
+              style={{
+                fontFamily: "var(--font-family)",
+                color: "var(--dark-blue)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <LinkedInIcon style={{ marginBottom: "3px" }} />
+              <label style={{ paddingLeft: "15px" }}>{ft[0].link3}</label>
             </label>
           </Grid>
           <Grid
@@ -111,7 +157,7 @@ function Footer() {
               color="var(--dark-blue)"
               fontWeight="bolder"
             >
-              VUNG TAU OFFICE
+              {(trans["VUNG TAU OFFICE"])}
             </Typography>
             <label
               style={{
@@ -125,7 +171,7 @@ function Footer() {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: "D1-2/8 Chi Linh Urban Area, Vung Tau City, Viet Nam",
+                  __html: language == 'vi'? (ft[1].adress || ft[1].adress_en) : (ft[1].adress_en || ft[1].adress),
                 }}
               ></label>
             </label>
@@ -138,7 +184,18 @@ function Footer() {
               }}
             >
               <PhoneIcon style={{ marginBottom: "5px" }} />
-              <label style={{ paddingLeft: "15px" }}>+84 123 456 789</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[1].phone_num}</label>
+            </label>
+            <label
+              style={{
+                fontFamily: "var(--font-family)",
+                color: "var(--dark-blue)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <EmailIcon style={{ marginBottom: "3px" }} />
+              <label style={{ paddingLeft: "15px" }}>{ft[1].email}</label>
             </label>
           </Grid>
           <Grid
@@ -181,3 +238,9 @@ function Footer() {
 }
 
 export default Footer;
+
+Footer.getInitialProps = async (ctx) => {
+  const res = await fetch(process.env.API_HOST +'/webinf/list')
+  const json = await res.json()
+  return { aa: json.results }
+}
