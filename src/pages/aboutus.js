@@ -15,7 +15,7 @@ const Page = ({products, aboutus}) => {
         {trans['About Us']} | MEKONG MARINE SUPPLY CO., LTD
       </title>
     </Head>
-    <AboutUs aboutus={aboutuss}/>
+    <AboutUs aboutus={aboutus} products={products}/>
   </>
 )};
 
@@ -30,6 +30,9 @@ Page.getInitialProps = async (ctx) => {
   const json = await res.json()
   const resAbout = await fetch(process.env.API_HOST +'/about-us')
   const jsonAbout = await resAbout.json()
-  return { products: json.results, aboutus: jsonAbout.results[0] }
+  
+  const resFooter = await fetch(process.env.API_HOST +'/webinf/list')
+  const jsonFooter = await resFooter.json()
+  return { products: json.results, aboutus: jsonAbout.results[0] ,footerDetail: jsonFooter.results}
 }
 export default Page;

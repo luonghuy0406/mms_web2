@@ -33,7 +33,10 @@ Page.getInitialProps = async (ctx) => {
   const json = await res.json()
   const res2 = await fetch(process.env.API_HOST +'/sub/list')
   const json2 = await res2.json()
-  return { products: json.results, subProducts: json2.results }
+  
+  const resFooter = await fetch(process.env.API_HOST +'/webinf/list')
+  const jsonFooter = await resFooter.json()
+  return { products: json.results, subProducts: json2.results, footerDetail: jsonFooter.results }
 }
 
 export default Page;

@@ -14,7 +14,7 @@ import axios from 'axios';
 import { LanguageContext } from '@/contexts/context';
 
 
-const Page = ({ products, banners }) => {
+const Page = ({ products, banners,aboutus, footerDetail }) => {
   const { ref, inView, entry } = useInView({
     /* Optional options */
     threshold: 0,
@@ -120,7 +120,7 @@ const Page = ({ products, banners }) => {
           
         </Carousel>
       </Box>
-      <AboutUs/>
+      <AboutUs products ={products} aboutus ={aboutus}/>
       <OurPartner/>
       <Grid item md={12} sx={{ padding: 0 }}>
         <Container maxWidth="md" sx={{ p: 2 }}>
@@ -168,7 +168,12 @@ Page.getInitialProps = async (ctx) => {
   const json = await res.json()
   const resBanner = await fetch(process.env.API_HOST +'/banner/list')
   const jsonBanner = await resBanner.json()
-  return { products: json.results, banners : jsonBanner.results }
+  
+  const resAbout = await fetch(process.env.API_HOST +'/about-us')
+  const jsonAbout = await resAbout.json()
+  const resFooter = await fetch(process.env.API_HOST +'/webinf/list')
+  const jsonFooter = await resFooter.json()
+  return { products: json.results, banners : jsonBanner.results, aboutus: jsonAbout.results[0], footerDetail: jsonFooter.results }
 }
  
 export default Page

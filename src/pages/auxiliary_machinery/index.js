@@ -25,6 +25,9 @@ Page.getLayout = (page) => (
 Page.getInitialProps = async (ctx) => {
   const res = await fetch(process.env.API_HOST +'/product/list')
   const json = await res.json()
-  return { products: json.results }
+  
+  const resFooter = await fetch(process.env.API_HOST +'/webinf/list')
+  const jsonFooter = await resFooter.json()
+  return { products: json.results, footerDetail: jsonFooter.results }
 }
 export default Page;

@@ -16,8 +16,9 @@ const LayoutContainer = styled('div')({
 });
 
 export const Layout = (props) => {
-    const { children } = props
-    const {products} = children.props
+  const { children } = props
+  const {products} = children.props
+  const {footerDetail} = children.props
     return (
       <>
         <TopNav products={products}/>
@@ -26,7 +27,7 @@ export const Layout = (props) => {
             {children}
           </LayoutContainer>
         </LayoutRoot>
-        <Footer/>
+        <Footer footer={footerDetail}/>
       </>
     );
   }

@@ -11,21 +11,10 @@ import useTrans from "@/hooks/useTrans";
 import { LanguageContext } from "@/contexts/context";
 
 
-function Footer({aa}) {
+function Footer(props) {
   const trans = useTrans()
-  const [ft,setFt] = useState('')
   const { language } = useContext(LanguageContext);
-  useEffect(()=>{var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  
-  fetch("http://localhost:3001/webinf/list", requestOptions)
-    .then(response => response.text())
-    .then(result => {setFt(JSON.parse(result).results)})
-    .catch(error => console.log('error', error));
-  },[])
-  console.log(ft[0])
+  const ft = props.footer
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">
@@ -238,9 +227,3 @@ function Footer({aa}) {
 }
 
 export default Footer;
-
-Footer.getInitialProps = async (ctx) => {
-  const res = await fetch(process.env.API_HOST +'/webinf/list')
-  const json = await res.json()
-  return { aa: json.results }
-}
