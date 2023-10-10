@@ -179,7 +179,9 @@ function Products(props) {
                                     sx={{
                                         width: '100%',
                                         height: '200px',
-                                        backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
+                                        backgroundImage: `url('https://placehold.co/400')`,
+                                        
+                                        // backgroundImage: `url(${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',

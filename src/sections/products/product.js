@@ -154,7 +154,8 @@ import useTrans from "@/hooks/useTrans";
                     aspectRatio: " 3/2",
                     objectFit: "contain",
                   }}
-                  src={`${process.env.API_HOST}/read_image/${props.product[0].image}`}
+                  // src={`${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${props.product[0].image}`}
+                  src={'https://placehold.co/600'}
                 />
                 {/* <Box
                   component="img"

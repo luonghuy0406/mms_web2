@@ -73,7 +73,8 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image1}`}
+                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image1}`}
+                  src={`https://placehold.co/400`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -91,7 +92,8 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image2}`}
+                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image2}`}
+                  src={`https://placehold.co/400`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -111,7 +113,8 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image3}`}
+                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image3}`}
+                  src={`https://placehold.co/400`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',

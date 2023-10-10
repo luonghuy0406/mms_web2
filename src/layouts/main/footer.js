@@ -11,10 +11,31 @@ import useTrans from "@/hooks/useTrans";
 import { LanguageContext } from "@/contexts/context";
 
 
-function Footer(props) {
+function Footer({footerDetail}) {
   const trans = useTrans()
   const { language } = useContext(LanguageContext);
-  const ft = props.footer
+  const ft = [
+    {
+        "id": "head_office",
+        "adress": "Tầng 1, 16 Yên Thế, Phường 2,\nQuận Tân Bình, HCMC, Việt Nam.",
+        "adress_en": "1st Floor, 16 Yen The St, Ward 2,\nTan Binh Dist., HCMC, Viet Nam.",
+        "phone_num": "+84 0123456789",
+        "email": "inquiries@mmsvn.com\n",
+        "link1": "facebook.com",
+        "link2": "youtube.com",
+        "link3": "https://www.linkedin.com/"
+    },
+    {
+        "id": "vt_office",
+        "adress": "D1-2/8 Khu đô thị Chí Linh,\nThành phố Vũng Tàu, Việt Nam.",
+        "adress_en": "D1-2/8 Chi Linh Urban Area,\nVung Tau City, Viet Nam.",
+        "phone_num": "+84 09876543210",
+        "email": null,
+        "link1": null,
+        "link2": null,
+        "link3": null
+    }
+]
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">

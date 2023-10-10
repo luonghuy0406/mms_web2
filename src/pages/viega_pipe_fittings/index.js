@@ -23,10 +23,10 @@ Page.getLayout = (page) => (
 );
 
 Page.getInitialProps = async (ctx) => {
-  const res = await fetch(process.env.API_HOST +'/product/list')
+  const res = await fetch('https://1454-183-80-32-33.ngrok-free.app' +'/product/list')
   const json = await res.json()
   
-  const resFooter = await fetch(process.env.API_HOST +'/webinf/list')
+  const resFooter = await fetch('https://1454-183-80-32-33.ngrok-free.app' +'/webinf/list')
   const jsonFooter = await resFooter.json()
   return { products: json.results,footerDetail : jsonFooter.results }
 }

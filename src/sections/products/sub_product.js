@@ -20,7 +20,7 @@ function SubProduct({product}) {
   const trans = useTrans()
   return (
     <Box sx={{display:'flex', alignItems:'center', flexDirection: 'column', padding: 1}}>
-      <img  src={`${process.env.API_HOST}/read_image/${product.image}`} width="200" height="200" alt={trans == 'vi' ? product.name : product.name_en}/>
+      <img  src={`https://placehold.co/400`} width="200" height="200" alt={trans == 'vi' ? product.name : product.name_en}/>
       <Typography fontWeight={'bold'}>
         {trans == 'vi' ? (product.name || product.name_en) : (product.name_en || product.name)}
       </Typography>
