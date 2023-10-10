@@ -98,7 +98,7 @@ function ProductHome(props) {
                             objectFit: "contain",
                             }}
                             // src={'https://1454-183-80-32-33.ngrok-free.app' +'/read_image/'+props.product.image}
-                            src={'https://placehold.co/600'}
+                            src={'https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg'}
                             
                         />
                         {/* <Box

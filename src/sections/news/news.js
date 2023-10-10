@@ -204,7 +204,7 @@ const NewestPost = (props)=>{
                           lg: '400px'
                       },
                       // backgroundImage: `url('${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${props.post.image}')`,
-                      backgroundImage: `url('https://placehold.co/600x400')`,
+                      backgroundImage: `url('https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925763347.jpg')`,
                       backgroundSize: 'cover',
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: 'center'
@@ -240,7 +240,7 @@ const PostCard = (props) => {
                         lg: '250px'
                     },
                     // backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${props.post.image}')`,
-                    backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('https://placehold.co/600x400')`,
+                    backgroundImage: `linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 100%), url('https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925763347.jpg')`,
                     
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',

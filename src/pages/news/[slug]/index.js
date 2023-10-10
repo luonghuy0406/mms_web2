@@ -71,7 +71,7 @@ const Page = () => {
                             lg: '300px'
                         },
                         // backgroundImage: `url('${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${post[0].image})`,
-                        backgroundImage:`url("https://placehold.co/900x400")`,
+                        backgroundImage:`url("https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925763347.jpg")`,
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center'

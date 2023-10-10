@@ -103,7 +103,7 @@ const Page = ({ products, banners,aboutus, footerDetail }) => {
                   margin: "auto",
                   width: "100%",
                   // backgroundImage:`url("${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${image.link}")`,
-                  backgroundImage:`url("https://placehold.co/900x400")`,
+                  backgroundImage:`url("https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925655510.jpeg")`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "cover",
                   backgroundPosition: "center",

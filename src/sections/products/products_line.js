@@ -179,7 +179,7 @@ function Products(props) {
                                     sx={{
                                         width: '100%',
                                         height: '200px',
-                                        backgroundImage: `url('https://placehold.co/400')`,
+                                        backgroundImage: `url('https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg')`,
                                         
                                         // backgroundImage: `url(${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${item.image})`,
                                         backgroundSize: '80%',
