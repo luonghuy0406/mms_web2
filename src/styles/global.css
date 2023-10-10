@@ -20,6 +20,10 @@ body {
   font-size: 14px;
 }
 
+hr{
+  border-color: rgb(244 91 20 / 30%) !important;
+}
+
 * {
   box-sizing: border-box;
 }

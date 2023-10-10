@@ -126,7 +126,7 @@ export const TopNav = (props) => {
                             fontFamily: (theme) => theme.typography.header,
                             display: { xs: "none",md: "none", lg: "flex" },
                             fontWeight: 700,
-                            color:  (theme) => theme.color.darkBlue,
+                            color:  (theme) => theme.color.orange,
                             textDecoration: "none",
                             fontSize:"14px",
                             cursor: "pointer"

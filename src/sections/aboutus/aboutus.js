@@ -147,9 +147,7 @@ const AboutUsContent = (props) => {
               </Stack>
             </Stack>
             <Stack spacing={2} sx={{pt:2}}>
-              <Typography>
-                {language =='vi'? (props.aboutus?.content || props.aboutus?.content_en) : (props.aboutus?.content_en || props.aboutus?.content)}
-              </Typography>
+              <div className='ck-content' dangerouslySetInnerHTML={{__html:language =='vi'? (props.aboutus?.content || props.aboutus?.content_en) : (props.aboutus?.content_en || props.aboutus?.content)}}/>
             </Stack>
           </Stack>
       </Grid>

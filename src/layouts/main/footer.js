@@ -17,18 +17,18 @@ function Footer({footerDetail}) {
   const ft = [
     {
         "id": "head_office",
-        "adress": "Tầng 1, 16 Yên Thế, Phường 2,\nQuận Tân Bình, HCMC, Việt Nam.",
-        "adress_en": "1st Floor, 16 Yen The St, Ward 2,\nTan Binh Dist., HCMC, Viet Nam.",
+        "adress": "Tầng 1, 16 Yên Thế, Phường 2, Quận Tân Bình, HCMC, Việt Nam.",
+        "adress_en": "1st Floor, 16 Yen The St, Ward 2, Tan Binh Dist., HCMC, Viet Nam.",
         "phone_num": "+84 0123456789",
-        "email": "inquiries@mmsvn.com\n",
+        "email": "inquiries@mmsvn.com",
         "link1": "facebook.com",
         "link2": "youtube.com",
         "link3": "https://www.linkedin.com/"
     },
     {
         "id": "vt_office",
-        "adress": "D1-2/8 Khu đô thị Chí Linh,\nThành phố Vũng Tàu, Việt Nam.",
-        "adress_en": "D1-2/8 Chi Linh Urban Area,\nVung Tau City, Viet Nam.",
+        "adress": "D1-2/8 Khu đô thị Chí Linh, Thành phố Vũng Tàu, Việt Nam.",
+        "adress_en": "D1-2/8 Chi Linh Urban Area, Vung Tau City, Viet Nam.",
         "phone_num": "+84 09876543210",
         "email": null,
         "link1": null,

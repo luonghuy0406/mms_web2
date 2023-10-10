@@ -82,10 +82,10 @@ const useStyles = makeStyles((props) => ({
     cursor: "pointer",
     "&:hover": {
       "& .card-content-hover":{
-        backgroundColor: "var(--dark-blue) !important",
+        backgroundColor: "var(--orange) !important",
       },
       "& span": {
-        color: "var(--orange) !important",
+        color: "white !important",
       },
       "& h6": {
         color: "white !important"
@@ -151,7 +151,7 @@ function Products(props) {
                 ref={productRef}
                 container
                 classes={{ root: classes.container }}
-                pt={5}
+                pt={3}
                 className={"animate__animated animate__delay"}
             >
                 {props.childs.map((item, index) => {
@@ -173,12 +173,12 @@ function Products(props) {
                             href={`/${props.path}/${convertPath(item.name)}-${item.id_product}`}
                             title=""
                         >
-                            <Box position='relative' style={{height:'300px'}}>
+                            <Box position='relative' style={{height:'350px', display:'flex', justifyContent:'center'}}>
                                 <Box
                                     className='product-image'
                                     sx={{
-                                        width: '100%',
-                                        height: '200px',
+                                        width: '85%',
+                                        height: '250px',
                                         backgroundImage: `url('https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg')`,
                                         
                                         // backgroundImage: `url(${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${item.image})`,

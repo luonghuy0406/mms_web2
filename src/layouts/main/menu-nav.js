@@ -17,7 +17,9 @@ export default function MenuNav(props) {
     
   const trans = useTrans()
     return (
-    <Box position={"relative"} 
+    <Box
+        sx={{minWidth:'115px'}}
+        position={"relative"} 
         onMouseEnter={handleOpen} 
         onMouseLeave={handleClose}
     >

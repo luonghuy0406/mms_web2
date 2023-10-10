@@ -219,7 +219,7 @@ import useTrans from "@/hooks/useTrans";
                   {/* {data.brochue && ( */}
                     <label
                       style={{
-                        color: "var(--dark-blue)",
+                        color: "var(--orange)",
                         fontFamily: "var(--font-family)",
                         display: "flex",
                         alignItems: "center",
