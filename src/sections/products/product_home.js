@@ -123,7 +123,7 @@ function ProductHome(props) {
                             component="h5"
                             fontWeight="bolder"
                             pb={2}
-                            sx={{ textTransform: "uppercase" }}
+                            sx={{ textTransform: "uppercase", textAlign:'left' }}
                         >
                             {language =='vi'? (props.product.name || props.product.name_en) : (props.product.name_en || props.product.name)}
                         </Typography>
