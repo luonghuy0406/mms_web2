@@ -85,7 +85,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <LocationOnIcon />
+              <LocationOnIcon sx={{color:"var(--orange)"}}/>
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
@@ -101,7 +101,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <PhoneIcon style={{ marginBottom: "5px" }} />
+              <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].phone_num}</label>
             </label>
             <label
@@ -112,7 +112,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <EmailIcon style={{ marginBottom: "3px" }} />
+              <EmailIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].email}</label>
             </label>
             <label
@@ -123,7 +123,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <FacebookIcon style={{ marginBottom: "3px" }} />
+              <FacebookIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].link1}</label>
             </label>
             <label
@@ -134,7 +134,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <YouTubeIcon style={{ marginBottom: "3px" }} />
+              <YouTubeIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].link2}</label>
             </label>
             <label
@@ -145,7 +145,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <LinkedInIcon style={{ marginBottom: "3px" }} />
+              <LinkedInIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].link3}</label>
             </label>
           </Grid>
@@ -177,7 +177,7 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <LocationOnIcon />
+              <LocationOnIcon sx={{color:"var(--orange)"}}/>
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
@@ -193,10 +193,10 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <PhoneIcon style={{ marginBottom: "5px" }} />
+              <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[1].phone_num}</label>
             </label>
-            <label
+            {/* <label
               style={{
                 fontFamily: "var(--font-family)",
                 color: "var(--dark-blue)",
@@ -204,9 +204,9 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <EmailIcon style={{ marginBottom: "3px" }} />
+              <EmailIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
               <label style={{ paddingLeft: "15px" }}>{ft[1].email}</label>
-            </label>
+            </label> */}
           </Grid>
           <Grid
             container
@@ -240,7 +240,7 @@ function Footer({footerDetail}) {
             float: "right",
           }}
         >
-          ©2023 Mekong Marine Supply Co., Ltd (PPSC), All Rights Reserved.
+          ©2023 Mekong Marine Supply Co., Ltd (MMS), All Rights Reserved.
         </label>
       </div>
     </div>
