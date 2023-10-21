@@ -11,31 +11,10 @@ import useTrans from "@/hooks/useTrans";
 import { LanguageContext } from "@/contexts/context";
 
 
-function Footer({footerDetail}) {
+function Footer({footer}) {
   const trans = useTrans()
   const { language } = useContext(LanguageContext);
-  const ft = [
-    {
-        "id": "head_office",
-        "adress": "Tầng 1, 16 Yên Thế, Phường 2, Quận Tân Bình, HCMC, Việt Nam.",
-        "adress_en": "1st Floor, 16 Yen The St, Ward 2, Tan Binh Dist., HCMC, Viet Nam.",
-        "phone_num": "+84 0123456789",
-        "email": "inquiries@mmsvn.com",
-        "link1": "facebook.com",
-        "link2": "youtube.com",
-        "link3": "https://www.linkedin.com/"
-    },
-    {
-        "id": "vt_office",
-        "adress": "D1-2/8 Khu đô thị Chí Linh, Thành phố Vũng Tàu, Việt Nam.",
-        "adress_en": "D1-2/8 Chi Linh Urban Area, Vung Tau City, Viet Nam.",
-        "phone_num": "+84 09876543210",
-        "email": null,
-        "link1": null,
-        "link2": null,
-        "link3": null
-    }
-]
+  const ft = footer
   return (
     <div style={{backgroundColor: 'var(--gray-light)',padding: '20px', paddingTop: '40px'}}>
       <Container maxWidth="xl">
@@ -58,11 +37,28 @@ function Footer({footerDetail}) {
             />
           </Grid>
           <Grid
+            item
+            container
+            xs={12}
+            md={6}
+          >
+            <Grid item xs={12} md={12} sm={12}>
+              <Typography
+                fontFamily={"var(--font-family-header)"}
+                variant="h5"
+                gutterBottom
+                color="var(--dark-blue)"
+                fontWeight="bolder"
+              >
+                {(trans["Mekong Marine Supply Co., Ltd"])}
+              </Typography>
+            </Grid>
+            <Grid
             container
             item
             xs={12}
-            sm={4}
-            md={3}
+            sm={6}
+            md={6}
             pr={1}
             pl={1}
             pb={2}
@@ -72,10 +68,10 @@ function Footer({footerDetail}) {
               fontFamily={"var(--font-family-header)"}
               variant="h6"
               gutterBottom
-              color="var(--dark-blue)"
+              color="var(--orange)"
               fontWeight="bolder"
             >
-              {(trans["HEAD OFFICE"])}
+              {(trans["HO CHI MINH OFFICE"])}
             </Typography>
             <label
               style={{
@@ -126,35 +122,13 @@ function Footer({footerDetail}) {
               <FacebookIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[0].link1}</label>
             </label>
-            <label
-              style={{
-                fontFamily: "var(--font-family)",
-                color: "var(--dark-blue)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <YouTubeIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].link2}</label>
-            </label>
-            <label
-              style={{
-                fontFamily: "var(--font-family)",
-                color: "var(--dark-blue)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <LinkedInIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].link3}</label>
-            </label>
           </Grid>
           <Grid
             item
             container
             xs={12}
-            sm={4}
-            md={3}
+            sm={6}
+            md={6}
             pr={1}
             pl={1}
             pb={2}
@@ -164,7 +138,7 @@ function Footer({footerDetail}) {
               fontFamily={"var(--font-family-header)"}
               variant="h6"
               gutterBottom
-              color="var(--dark-blue)"
+              color="var(--orange)"
               fontWeight="bolder"
             >
               {(trans["VUNG TAU OFFICE"])}
@@ -196,7 +170,7 @@ function Footer({footerDetail}) {
               <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
               <label style={{ paddingLeft: "15px" }}>{ft[1].phone_num}</label>
             </label>
-            {/* <label
+            <label
               style={{
                 fontFamily: "var(--font-family)",
                 color: "var(--dark-blue)",
@@ -204,10 +178,23 @@ function Footer({footerDetail}) {
                 alignItems: "center",
               }}
             >
-              <EmailIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[1].email}</label>
-            </label> */}
+              <YouTubeIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
+              <label style={{ paddingLeft: "15px" }}>{ft[0].link2}</label>
+            </label>
+            <label
+              style={{
+                fontFamily: "var(--font-family)",
+                color: "var(--dark-blue)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <LinkedInIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
+              <label style={{ paddingLeft: "15px" }}>{ft[0].link3}</label>
+            </label>
           </Grid>
+          </Grid>
+          
           <Grid
             container
             item

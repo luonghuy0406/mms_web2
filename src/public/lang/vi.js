@@ -12,5 +12,8 @@ export default {
     "Product brochure" : "Tài liệu sản phẩm",
     "Contact us"  :"Liên hệ",
     "CANCEL" : "HUỶ",
-    "SEND" : "GỬI"
+    "SEND" : "GỬI",
+    "HO CHI MINH OFFICE" : "VĂN PHÒNG HỒ CHÍ MINH:",
+    "VUNG TAU OFFICE" :"VĂN PHÒNG VŨNG TÀU:",
+    "Mekong Marine Supply Co., Ltd" : "Công Ty TNHH Mekong Marine Supply"
 }

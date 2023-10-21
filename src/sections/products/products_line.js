@@ -179,9 +179,7 @@ function Products(props) {
                                     sx={{
                                         width: '85%',
                                         height: '250px',
-                                        backgroundImage: `url('https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg')`,
-                                        
-                                        // backgroundImage: `url(${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${item.image})`,
+                                        backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',

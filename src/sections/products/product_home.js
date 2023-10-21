@@ -97,21 +97,8 @@ function ProductHome(props) {
                             aspectRatio: " 3/2",
                             objectFit: "contain",
                             }}
-                            // src={'https://1454-183-80-32-33.ngrok-free.app' +'/read_image/'+props.product.image}
-                            src={'https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg'}
-                            
+                            src={process.env.API_HOST +'/read_image/'+props.product.image}
                         />
-                        {/* <Box
-                            component="img"
-                            sx={{
-                            width: { xs: "70px", md: "100px" },
-                            position: "absolute",
-                            padding: "10px",
-                            top: "0",
-                            left: "0",
-                            }}
-                            src={logoBrand}
-                        /> */}
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={7} container sx={{paddingLeft:{xs:"0",md:"20px"}}}>
@@ -149,29 +136,8 @@ function ProductHome(props) {
                                 dangerouslySetInnerHTML={{ __html: props.language =='vi'? (props.product.des || props.product.des_en) : (props.product.des_en || props.product.des)}}
                             ></label>
                         </Box>
-
-                        {/* <Typography
-                            color={"var(--dark-blue)"}
-                            fontFamily={"var(--font-family-header)"}
-                            variant="h6"
-                            component="h6"
-                            fontWeight="bolder"
-                            pb={2}
-                        >
-                            SPECIFICATION
-                        </Typography>
-                        <Divider /> */}
                         <Box p={2} className='ck-content'>
-                            {/* <label
-                                style={{
-                                    color: "var(--black)",
-                                    fontFamily: "var(--font-family)",
-                                }}
-                                dangerouslySetInnerHTML={{ __html: props.language =='vi'? props.product.spec : props.product.spec_en }}
-                            ></label>
-                            <br />
-                            <br /> */}
-                            {/* {data.brochue && ( */}
+                            {props.product.brochure && (
                             <label
                                 style={{
                                 color: "var(--orange)",
@@ -182,14 +148,14 @@ function ProductHome(props) {
                             >
                                 <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
                                 <a
-                                    href={props.product.brochue}
+                                    href={props.product.brochure}
                                     style={{ paddingLeft: "10px" }}
                                     target="_blank"
                                 >
                                 {trans['Product brochure']}
                                 </a>
                             </label>
-                            {/* )} */}
+                            )} 
                         </Box>
                         </Grid>
                     </Grid>

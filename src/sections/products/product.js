@@ -63,6 +63,7 @@ import useTrans from "@/hooks/useTrans";
   });
   
   function Product(props) {
+    console.log(">>>",props.product)
     const { language } = useContext(LanguageContext);
     const trans = useTrans()
     useEffect(() => {
@@ -154,20 +155,8 @@ import useTrans from "@/hooks/useTrans";
                     aspectRatio: " 3/2",
                     objectFit: "contain",
                   }}
-                  // src={`${'https://1454-183-80-32-33.ngrok-free.app'}/read_image/${props.product[0].image}`}
-                  src={'https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696925420874.jpg'}
+                  src={`${process.env.API_HOST}/read_image/${props.product[0].image}`}
                 />
-                {/* <Box
-                  component="img"
-                  sx={{
-                    width: { xs: "70px", md: "100px" },
-                    position: "absolute",
-                    padding: "10px",
-                    top: "0",
-                    left: "0",
-                  }}
-                  src={logoBrand}
-                /> */}
               </Box>
             </Grid>
             <Grid item xs={12} md={7} container sx={{paddingLeft:{xs:"0",md:"20px"}}}>
@@ -194,29 +183,8 @@ import useTrans from "@/hooks/useTrans";
                     dangerouslySetInnerHTML={{ __html: language =='vi'? (props.product[0].des || props.product[0].des_en) : (props.product[0].des_en || props.product[0].des) }}
                   ></label>
                 </Box>
-  
-                {/* <Typography
-                  color={"var(--dark-blue)"}
-                  fontFamily={"var(--font-family-header)"}
-                  variant="h6"
-                  component="h6"
-                  fontWeight="bolder"
-                  pb={2}
-                >
-                  SPECIFICATION
-                </Typography>
-                <Divider /> */}
                 <Box p={2} className='ck-content'>
-                  {/* <label
-                    style={{
-                      color: "var(--black)",
-                      fontFamily: "var(--font-family)",
-                    }}
-                    dangerouslySetInnerHTML={{ __html: '<p>Thông số kỹ thuật</p><ul><li>Thông số 1</li><li>Thông số 2</li><li>…</li></ul>' }}
-                  ></label>
-                  <br />
-                  <br /> */}
-                  {/* {data.brochue && ( */}
+                  {props.product[0].brochure && (
                     <label
                       style={{
                         color: "var(--orange)",
@@ -227,18 +195,18 @@ import useTrans from "@/hooks/useTrans";
                     >
                       <ArticleIcon style={{ paddingBottom: "3px" }} />{" "}
                       <a
-                        href={props.product.brochue}
+                        href={props.product[0].brochure}
                         style={{ paddingLeft: "10px" }}
                         target="_blank"
                       >
                         {trans['Product brochure']}
                       </a>
                     </label>
-                  {/* )} */}
+                  )}
                 </Box>
                 <FormContact
                 //   productId={secondId}
-                  content={props.product.name}
+                  content={props.product[0].name}
                 />
               </Grid>
             </Grid>

@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, CardMedia, Container, Grid, Stack, Typography } from "@mui/material";
 import $ from 'jquery'
 import 'animate.css';
 import React, { useEffect } from "react";
@@ -9,11 +9,11 @@ import "react-multi-carousel/lib/styles.css";
 import useTrans from "@/hooks/useTrans";
 
 
-function OurPartner() {
+function OurPartner({customer}) {
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
       <Container maxWidth="md" sx={{ p: 2 }}>
-          <OurPartnerContent />
+          <OurPartnerContent customer={customer}/>
       </Container>
     </Grid>
   );
@@ -21,7 +21,8 @@ function OurPartner() {
 
 export default OurPartner;
 
-const OurPartnerContent = () => {
+const OurPartnerContent = ({customer}) => {
+  console.log("customer",customer)
   const trans = useTrans()
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -112,24 +113,21 @@ const OurPartnerContent = () => {
             slidesToSlide={1}
             swipeable
             >
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CMA_CGM_logo.svg/1200px-CMA_CGM_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/COSCO_logo.svg/2560px-COSCO_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ocean_Network_Express_logo.svg/2560px-Ocean_Network_Express_logo.svg.png" style={{width:"300px"}}/>
-                </Box>
+              {
+                customer?.map((cus)=>{
+                  return (
+                    <Box key={'cus-'+cus.id} sx={{p:2,height:"100%", display:'flex', alignItems:'center', justifyContent:'center'}}>
+                      <CardMedia
+                          component="img"
+                          sx={{ width: 300,textAlign: "center" }}
+                          image={`${process.env.API_HOST}/read_image/${cus.image}`}
+                          alt={cus.name} 
+                      />
+                    </Box>
+                  )
+                })
+              }
+                
             </Carousel>
       </Grid>
     </Grid>

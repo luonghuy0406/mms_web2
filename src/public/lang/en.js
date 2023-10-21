@@ -12,5 +12,8 @@ export default {
     "Product brochure": "Product brochure",
     "Contact us"  :"Contact us",
     "CANCEL" : "CANCEL",
-    "SEND" : "SEND"
+    "SEND" : "SEND",
+    "HO CHI MINH OFFICE" : "HO CHI MINH OFFICE:",
+    "VUNG TAU OFFICE" :"VUNG TAU OFFICE:",
+    "Mekong Marine Supply Co., Ltd" : "Mekong Marine Supply Co., Ltd"
 }

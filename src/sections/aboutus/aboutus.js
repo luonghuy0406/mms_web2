@@ -73,8 +73,7 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image1}`}
-                  src={`https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696929304003.png`}
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image1}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -92,8 +91,7 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image2}`}
-                  src={`https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696929304078.png`}
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image2}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
@@ -113,8 +111,7 @@ const AboutUsContent = (props) => {
               >
                 <img
                   alt="Under development"
-                  // src={`${"https://1454-183-80-32-33.ngrok-free.app"}/read_image/${props.aboutus?.image3}`}
-                  src={`https://s3.eu-central-1.wasabisys.com/rta-rtcloud/file_1696929304093.png`}
+                  src={`${process.env.API_HOST}/read_image/${props.aboutus?.image3}`}
                   style={{
                     display: 'inline-block',
                     maxWidth: '100%',
