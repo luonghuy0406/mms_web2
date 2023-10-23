@@ -15,5 +15,13 @@ export default {
     "SEND" : "SEND",
     "HO CHI MINH OFFICE" : "HO CHI MINH OFFICE:",
     "VUNG TAU OFFICE" :"VUNG TAU OFFICE:",
-    "Mekong Marine Supply Co., Ltd" : "Mekong Marine Supply Co., Ltd"
+    "Mekong Marine Supply Co., Ltd" : "Mekong Marine Supply Co., Ltd",
+    "Name is not null." : "Name is not null.",
+    "Email is not null." : "Email is not null.",
+    "Email is invalid." : "Email is invalid.",
+    "Phone number is not null." : "Phone number is not null.",
+    "Phone number" : "Phone number",
+    "Content" : "Content",
+    "Name" : "Name",
+    "Phone is invalid." : "Phone is invalid." 
 }

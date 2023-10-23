@@ -22,7 +22,6 @@ function OurPartner({customer}) {
 export default OurPartner;
 
 const OurPartnerContent = ({customer}) => {
-  console.log("customer",customer)
   const trans = useTrans()
   const { ref, inView, entry } = useInView({
     /* Optional options */

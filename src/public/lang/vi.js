@@ -15,5 +15,13 @@ export default {
     "SEND" : "GỬI",
     "HO CHI MINH OFFICE" : "VĂN PHÒNG HỒ CHÍ MINH:",
     "VUNG TAU OFFICE" :"VĂN PHÒNG VŨNG TÀU:",
-    "Mekong Marine Supply Co., Ltd" : "Công Ty TNHH Mekong Marine Supply"
+    "Mekong Marine Supply Co., Ltd" : "Công Ty TNHH Mekong Marine Supply",
+    "Name is not null." :  "Tên không được để trống.",
+    "Email is not null." : "Email không được để trống.",
+    "Email is invalid." : "Email không hợp lệ.",
+    "Phone number is not null." : "Số điện thoại không được để trống.",
+    "Phone number" : "Số điện thoại",
+    "Content" : "Nội dung",
+    "Name" : "Tên" ,
+    "Phone is invalid." : "Số điện thoại không hợp lệ"
 }

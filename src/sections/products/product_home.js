@@ -9,6 +9,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import { makeStyles } from "@material-ui/core";
 import useTrans from "@/hooks/useTrans";
 import { LanguageContext } from "@/contexts/context";
+import SendMail from "./send_mail";
 
 const useStyles = makeStyles(() => {
     const theme = useTheme();
@@ -157,6 +158,10 @@ function ProductHome(props) {
                             </label>
                             )} 
                         </Box>
+
+                        {/* <SendMail
+                            id={props.product.id_product}
+                        /> */}
                         </Grid>
                     </Grid>
                 </Grid>

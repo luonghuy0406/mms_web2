@@ -7,24 +7,16 @@ import {
     useTheme,
     Breadcrumbs,
   } from "@mui/material";
-  import $ from "jquery";
-  import React, { useContext, useEffect, useRef } from "react";
-  import { useTranslation } from "react-i18next";
-  import { useInView } from "react-intersection-observer";
-  import "react-multi-carousel/lib/styles.css";
-  import ArticleIcon from "@mui/icons-material/Article";
-  
-  import Button from "@mui/material/Button";
-  import TextField from "@mui/material/TextField";
-  import Dialog from "@mui/material/Dialog";
-  import DialogActions from "@mui/material/DialogActions";
-  import DialogContent from "@mui/material/DialogContent";
-  import DialogTitle from "@mui/material/DialogTitle";
+import React, { useContext, useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import "react-multi-carousel/lib/styles.css";
+import ArticleIcon from "@mui/icons-material/Article";
 import { makeStyles } from "@material-ui/core";
 import Link from "next/link";
 import { LanguageContext } from "@/contexts/context";
 import SubProduct from "./sub_product";
 import useTrans from "@/hooks/useTrans";
+import SendMail from "./send_mail";
 
   const useStyles = makeStyles(() => {
     const theme = useTheme();
@@ -63,7 +55,6 @@ import useTrans from "@/hooks/useTrans";
   });
   
   function Product(props) {
-    console.log(">>>",props.product)
     const { language } = useContext(LanguageContext);
     const trans = useTrans()
     useEffect(() => {
@@ -204,9 +195,8 @@ import useTrans from "@/hooks/useTrans";
                     </label>
                   )}
                 </Box>
-                <FormContact
-                //   productId={secondId}
-                  content={props.product[0].name}
+                <SendMail
+                  id={props.product[0].id_product}
                 />
               </Grid>
             </Grid>
@@ -235,160 +225,3 @@ import useTrans from "@/hooks/useTrans";
   }
   
   export default Product;
-  const FormContact = ({ ...props }) => {
-    const trans = useTrans()
-    const [open, setOpen] = React.useState(false);
-    const [name, setName] = React.useState("");
-    const [email, setEmail] = React.useState("");
-    const [phone, setPhone] = React.useState("");
-    const [nameValid, setNameValid] = React.useState(false);
-    const [emailValid, setEmailValid] = React.useState(false);
-    const [phoneValid, setPhoneValid] = React.useState(false);
-    const classes = useStyles();
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-      setOpen("");
-      setName("");
-      setEmail("");
-    };
-    const handleSendMail = () => {
-      if (name.length > 0 && email.length > 0 && phone.length > 0) {
-        setOpen(false);
-        setNameValid(false);
-        setEmailValid(false);
-        setPhoneValid(false);
-        let data = $("#send-mail-form" + props.productId).serialize();
-        $.ajax({
-          type: "POST",
-          url: 'https://api.pacificpsc.com/send',
-          data: data,
-          success: function (data) {},
-          error: function (error) {},
-        });
-      } else {
-        if (name.length == 0) {
-          setNameValid(true);
-        } else {
-          setNameValid(false);
-        }
-        if (email.length == 0) {
-          setEmailValid(true);
-        } else {
-          setEmailValid(false);
-        }
-        if (phone.length == 0) {
-          setPhoneValid(true);
-        } else {
-          setPhoneValid(false);
-        }
-      }
-    };
-  
-    return (
-      <div style={{ float: "right" }}>
-        <Button
-          variant="contained"
-          onClick={handleClickOpen}
-          className={classes.button}
-        >
-          {trans['Contact us']}
-        </Button>
-        <Dialog open={open} onClose={handleClose}>
-          <form id={"send-mail-form" + props.productId}>
-            <DialogTitle
-              sx={{
-                backgroundColor: "var(--dark-blue)",
-                color: "white",
-                textAlign: "center",
-              }}
-            >
-              {trans['Contact us']}
-            </DialogTitle>
-            <DialogContent sx={{ paddingTop: "24px !important" }}>
-              <TextField
-                required
-                autoFocus
-                margin="dense"
-                name="name"
-                label="Full name"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                  if (e.target.value.length > 0) {
-                    setNameValid(false);
-                  } else {
-                    setNameValid(true);
-                  }
-                }}
-                error={nameValid}
-                helperText={nameValid ? "Name is not null." : ""}
-              />
-              <TextField
-                required
-                margin="dense"
-                name="email"
-                label="Email address"
-                type="email"
-                fullWidth
-                variant="outlined"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (e.target.value.length > 0) {
-                    setEmailValid(false);
-                  } else {
-                    setEmailValid(true);
-                  }
-                }}
-                error={emailValid}
-                helperText={emailValid ? "Email is not null." : ""}
-              />
-              <TextField
-                required
-                margin="dense"
-                name="phone"
-                label="Phone number"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={phone}
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                  if (e.target.value.length > 0) {
-                    setPhoneValid(false);
-                  } else {
-                    setPhoneValid(true);
-                  }
-                }}
-                error={phoneValid}
-                helperText={phoneValid ? "Phone number is not null." : ""}
-              />
-              <TextField
-                margin="dense"
-                id="content"
-                name="content"
-                label="Message"
-                multiline
-                rows={4}
-                defaultValue={"I'm interested in " + props.content}
-                fullWidth
-                variant="outlined"
-                pt={1}
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>{trans['CANCEL']}</Button>
-              <Button onClick={handleSendMail}>{trans['SEND']}</Button>
-            </DialogActions>
-          </form>
-        </Dialog>
-      </div>
-    );
-  };

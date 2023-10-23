@@ -85,7 +85,7 @@ function Footer({footer}) {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: language == 'vi'? (ft[0].adress || ft[0].adress_en) : (ft[0].adress_en || ft[0].adress),
+                  __html: language == 'vi'? (ft[0]?.adress || ft[0]?.adress_en) : (ft[0]?.adress_en || ft[0]?.adress),
                 }}
               ></label>
             </label>
@@ -98,7 +98,7 @@ function Footer({footer}) {
               }}
             >
               <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].phone_num}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0]?.phone_num}</label>
             </label>
             <label
               style={{
@@ -109,7 +109,7 @@ function Footer({footer}) {
               }}
             >
               <EmailIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].email}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0]?.email}</label>
             </label>
             <label
               style={{
@@ -120,7 +120,7 @@ function Footer({footer}) {
               }}
             >
               <FacebookIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].link1}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link1}</label>
             </label>
           </Grid>
           <Grid
@@ -155,7 +155,7 @@ function Footer({footer}) {
               <label
                 style={{ paddingLeft: "15px" }}
                 dangerouslySetInnerHTML={{
-                  __html: language == 'vi'? (ft[1].adress || ft[1].adress_en) : (ft[1].adress_en || ft[1].adress),
+                  __html: language == 'vi'? (ft[1]?.adress || ft[1]?.adress_en) : (ft[1]?.adress_en || ft[1]?.adress),
                 }}
               ></label>
             </label>
@@ -168,7 +168,7 @@ function Footer({footer}) {
               }}
             >
               <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[1].phone_num}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[1]?.phone_num}</label>
             </label>
             <label
               style={{
@@ -179,7 +179,7 @@ function Footer({footer}) {
               }}
             >
               <YouTubeIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].link2}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link2}</label>
             </label>
             <label
               style={{
@@ -190,7 +190,7 @@ function Footer({footer}) {
               }}
             >
               <LinkedInIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0].link3}</label>
+              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link3}</label>
             </label>
           </Grid>
           </Grid>

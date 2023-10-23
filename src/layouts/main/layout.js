@@ -19,7 +19,6 @@ export const Layout = (props) => {
   const { children } = props
   const {products} = children.props
   const {footer} = children.props
-  console.log(">>>",footer)
     return (
       <>
         <TopNav products={products}/>
