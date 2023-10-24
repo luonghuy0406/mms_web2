@@ -15,8 +15,8 @@ const useStyles = makeStyles(() => {
     const theme = useTheme();
     return {
         container: {
-        width: "calc(100%)  !important",
-        marginLeft: "0 !important",
+            width: "calc(100%)  !important",
+            marginLeft: "0 !important",
         },
         background: {
         "&:hover": {
@@ -49,11 +49,8 @@ const useStyles = makeStyles(() => {
 
 function ProductHome(props) {
     const { language } = useContext(LanguageContext);
+    // const classes = useStyles();
     const trans = useTrans()
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const classes = useStyles();
     const productRef = useRef() 
     const { ref, inView, entry } = useInView({
         /* Optional options */
@@ -74,7 +71,7 @@ function ProductHome(props) {
                     ref={productRef}
                     direction={props.reverse ? 'row-reverse' : 'row'}
                     container
-                    classes={{ root: classes.container }}
+                    // classes={{ root: classes.container }}
                     className={"animate__animated animate__delay-0.1s"}
                 >
                     <Grid item xs={12} md={5} sx={{ textAlign: "center" }} p={1}>
