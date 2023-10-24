@@ -3,20 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
   Container,
-  CardContent,
   Card,
   Typography,
-  useTheme,
   Box
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';

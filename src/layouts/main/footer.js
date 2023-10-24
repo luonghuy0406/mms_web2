@@ -1,6 +1,5 @@
-import React, { useContext, useEffect,useState } from "react";
-import { Container, Grid, Typography, Box, useTheme } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import React, { useContext} from "react";
+import { Container, Grid, Typography, Box } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";

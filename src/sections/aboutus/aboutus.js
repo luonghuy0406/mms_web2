@@ -1,10 +1,8 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import 'animate.css';
 import React, { useContext, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import $ from 'jquery'
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useTrans from "@/hooks/useTrans";
 import { LanguageContext } from "@/contexts/context";

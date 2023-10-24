@@ -1,8 +1,7 @@
-import { Box, CardMedia, Container, Grid, Stack, Typography } from "@mui/material";
+import { Box, CardMedia, Container, Grid, Typography } from "@mui/material";
 import $ from 'jquery'
 import 'animate.css';
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";

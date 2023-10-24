@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import {
   Box,
-  Grid,
   Typography,
 } from "@mui/material";
 import 'animate.css'
@@ -13,7 +12,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Image from "next/image";
 import useTrans from "@/hooks/useTrans";
 
 function SubProduct({product}) {
