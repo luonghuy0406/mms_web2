@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { Layout as MainLayout} from 'src/layouts/main/layout';
 import AboutUs from '@/sections/aboutus/aboutus';
 import useTrans from '@/hooks/useTrans';
-import { useState } from 'react';
 
 
 const Page = ({products, aboutus}) => {

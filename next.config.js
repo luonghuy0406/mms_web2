@@ -3,6 +3,6 @@ require('dotenv').config();
 module.exports = {
     i18n,
     env: {
-        API_HOST: process.env.API_HOST,
-      },
+      API_HOST: process.env.API_HOST,
+    }
 }

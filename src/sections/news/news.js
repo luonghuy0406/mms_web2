@@ -59,17 +59,6 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-  function sortPostByCreateDate(posts) {
-    // Sorting the posts array by create date
-    posts.sort((a, b) => {
-    const createDateA = new Date(a.cre_date);
-    const createDateB = new Date(b.cre_date);
-    return createDateA - createDateB;
-  });
-    
-    return posts;
-  }
-
 function News(props) {
   const { language } = useContext(LanguageContext);
   useEffect(() => {
@@ -80,7 +69,7 @@ function News(props) {
     /* Optional options */
     threshold: 0,
   });
-  const posts = sortPostByCreateDate(props.posts)
+  const posts = props.posts
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
       <Container maxWidth="md" sx={{ p: 2 }}>
@@ -109,14 +98,14 @@ function News(props) {
                 className={"animate__animated animate__delay"}
             >
                 <Grid item xs={12}>
-                    <NewestPost path={`/${props.path}/${convertPath(language == 'vi' ? posts[0]['name'] : posts[0]['name_en'])}-${posts[0].id_post}`} post={posts[0]} id={posts[0].id_post}/>
+                    <NewestPost path={`/${props.path}/${convertPath(posts[0]['name'])}-${posts[0].id_post}`} post={posts[0]} id={posts[0].id_post}/>
                 </Grid>
                 {
                   posts?.map((post,index) => {
                     if(index == 0) return []
                     return (
-                      <Grid item xs={6} key={`${convertPath(post['name_en'])}-${post.id_post}`}>
-                          <PostCard path={`/${props.path}/${convertPath(language == 'vi' ? post['name'] : post['name_en'])}-${post.id_post}`} id={post.id_post} post={post}/>
+                      <Grid item xs={6} key={`${convertPath(post['name'])}-${post.id_post}`}>
+                          <PostCard path={`/${props.path}/${convertPath(post['name'])}-${post.id_post}`} id={post.id_post} post={post}/>
                       </Grid>
                     )
                   })
@@ -268,7 +257,7 @@ const PostCard = (props) => {
                             textOverflow: 'ellipsis', 
                         }}
                     >
-                        {language == 'vi' ? props.post['name'] : props.post['name_en']}
+                        {language == 'vi' ? props.post['name'] : props.post?.['name_en']}
                     </Typography>
             </Box>
         </Box>

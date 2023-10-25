@@ -25,9 +25,8 @@ const LANGS = {
 export default function LanguagePopover() {
   const [open, setOpen] = useState(null);
   const { language, changeLanguage } = useContext(LanguageContext);
-  const handleLanguageChange = () => {
-    const newLanguage = language === 'en' ? 'vi' : 'en';
-    changeLanguage(newLanguage);
+  const handleLanguageChange = (value) => {
+    changeLanguage(value);
   };
 
   const handleOpen = (event) => {

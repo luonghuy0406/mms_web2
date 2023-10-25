@@ -27,7 +27,7 @@ const Page = ({posts}) => {
         <>
             <Head>
             <title>
-                {language =='vi' ? post[0]['name'] : post[0]['name_en']} | MEKONG MARINE SUPPLY CO., LTD
+                {language =='vi' ? post[0]['name'] : post[0]?.['name_en']} | MEKONG MARINE SUPPLY CO., LTD
             </title>
             </Head>
             <Grid item md={12}>

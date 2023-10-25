@@ -112,7 +112,7 @@ export const TopNav = (props) => {
                             }}
                         >
                           <Link href={'/'} legacyBehavior>
-                              <img src={'./mms_logo.png'} alt='mms logo' width={120} />
+                              <img src={'https://mmsvn.com/mms_logo.png'} alt='mms logo' width={120} height={77} />
                           </Link>
                       </Typography>
                       <Link href={'/'} legacyBehavior>
@@ -189,7 +189,7 @@ export const TopNav = (props) => {
             </Stack>
             <Stack sx={{display: { xs: "block",md: "block", lg: "none" }}}>
               <Link href={'/'} legacyBehavior>
-                    <img src={'./mms_logo.png'} alt='mms logo' width={60} />
+                    <img src={'https://mmsvn.com/mms_logo.png'} alt='mms logo' width={60} height={40}/>
               </Link>
             </Stack>
 
