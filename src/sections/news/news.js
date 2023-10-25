@@ -135,7 +135,7 @@ const NewestPost = (props)=>{
           <Grid
             container
           >
-            <Grid item xs={4}>
+            <Grid item xs={6} md={4}>
             <Box 
               classes={classes.newsTypo}
               sx={{
@@ -154,7 +154,11 @@ const NewestPost = (props)=>{
                         fontFamily: 'var(--font-family-head)',
                         color: 'var(--dark-blue)',
                         fontWeight: 'bold',
-                        fontSize: '25px'
+                        fontSize: '25px',
+                        overflow: 'hidden',
+                        display: '-webkit-box',
+                        WebkitLineClamp: '5',
+                        WebkitBoxOrient: 'vertical'
                     }}
                 >
                     {language == 'vi' ? props.post['name'] : props.post['name_en']}
@@ -173,7 +177,7 @@ const NewestPost = (props)=>{
                 </div>
             </Box>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={6} md={8}>
               <Box
               classes={classes.newsImage}
                   sx={{

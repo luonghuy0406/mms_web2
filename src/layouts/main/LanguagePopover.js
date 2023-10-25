@@ -40,7 +40,7 @@ export default function LanguagePopover() {
 
   const { pathname, asPath, query } = router
   const changeLang = (lang) => {
-    handleLanguageChange()
+    handleLanguageChange(lang)
     // change just the locale and maintain all other route information including href's query
     router.push({ pathname, query }, asPath, { locale: lang })
   }
