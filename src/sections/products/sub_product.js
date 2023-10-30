@@ -10,14 +10,17 @@ function SubProduct({product}) {
   const trans = useTrans()
   const { language } = useContext(LanguageContext);
   return (
-    <Box sx={{display:'flex', alignItems:'center', flexDirection: 'column', padding: 1, paddingTop: 4}}>
+    <Box sx={{display:'flex', alignItems:'center', flexDirection: 'column', px: 3, py: 3}}>
       <img  src={`${process.env.API_HOST}/read_image/${product.image}`} width="200" height="200" alt={language == 'vi' ? product.name : product.name_en}/>
       <Box p={2} className='ck-content'>
         <label
           style={{
             color: "var(--black)",
             fontFamily: "var(--font-family)",
-            fontWeight:"bolder"
+            fontWeight:"bolder",
+            textAlign:"center",
+            width:"100%",
+            display:"block"
           }}
           dangerouslySetInnerHTML={{ __html: language == 'vi' ? (product.name || product.name_en) : (product.name_en || product.name)}}
         ></label>
@@ -27,6 +30,7 @@ function SubProduct({product}) {
           style={{
             color: "var(--black)",
             fontFamily: "var(--font-family)",
+            textAlign:"center"
           }}
           dangerouslySetInnerHTML={{ __html: language == 'vi' ? (product.content || product.content_en) : (product.content_en || product.content)}}
         ></label>

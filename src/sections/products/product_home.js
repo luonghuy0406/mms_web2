@@ -66,7 +66,7 @@ function ProductHome(props) {
     },[inView])
     return (
         <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
-            <Container maxWidth="md" sx={{ p: 2 }}>
+            <Container maxWidth="xl" sx={{ p: 2 }}>
                 <Grid
                     ref={productRef}
                     direction={props.reverse ? 'row-reverse' : 'row'}

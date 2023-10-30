@@ -123,7 +123,7 @@ const Page = ({ products, banners,aboutus, footer, customer }) => {
       <AboutUs products ={products} aboutus ={aboutus}/>
       <OurPartner customer={customer}/>
       <Grid item md={12} sx={{ padding: 0 }}>
-        <Container maxWidth="md" sx={{ p: 2 }}>
+        <Container maxWidth="xl" sx={{ p: 2 }}>
           <Grid container >
             <Grid
                 id="content_lb1"

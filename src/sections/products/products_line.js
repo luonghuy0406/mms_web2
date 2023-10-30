@@ -37,7 +37,8 @@ const useStyles = makeStyles((props) => ({
     maxHeight: "100%",
   },
   boxContent: {
-    height: "400px",
+    height: "auto",
+    aspectRatio: 1,
     backgroundColor: "#f5f5f5",
     color: "var(--dark-blue)",
     display: "flex",
@@ -48,8 +49,8 @@ const useStyles = makeStyles((props) => ({
   },
   boxImage: {
     width: "100%",
-    height: 400,
-
+    height: "auto",
+    aspectRatio: 1,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "200%",
@@ -126,7 +127,7 @@ function Products(props) {
   },[inView])
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container ref={ref} maxWidth="md" sx={{ p: 2 }}>
+      <Container ref={ref} maxWidth="xl" sx={{ p: 2 }}>
         <Grid container >
             <Grid
                 ref={headerRef}
@@ -158,13 +159,13 @@ function Products(props) {
                 return (
                     // <Link to={`/product/${item.id}`}>
                     <Grid
-                    key={`${convertPath(item.name)}-${item.id_product}`}
-                    item
-                    sx={{p:2}}
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    container
+                      key={`${convertPath(item.name)}-${item.id_product}`}
+                      item
+                      sx={{p:2}}
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      container
                     >
                     <Grid item xs={12}>
                     <Card className={classes.card}>
@@ -173,13 +174,13 @@ function Products(props) {
                             href={`/${props.path}/${convertPath(item.name)}-${item.id_product}`}
                             title=""
                         >
-                            <Box position='relative' style={{height:'350px', display:'flex', justifyContent:'center'}}>
+                            <Box position='relative' style={{height:'auto', aspectRatio: 1, display:'flex', justifyContent:'center'}}>
                                 <Box
                                     className='product-image'
                                     sx={{
                                         width: '85%',
                                         height: 'auto',
-                                        aspectRatio: 1,
+                                        aspectRatio: 1.2,
                                         backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',

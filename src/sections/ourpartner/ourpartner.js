@@ -11,7 +11,7 @@ import useTrans from "@/hooks/useTrans";
 function OurPartner({customer}) {
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container maxWidth="md" sx={{ p: 2 }}>
+      <Container maxWidth="xl" sx={{ p: 2 }}>
           <OurPartnerContent customer={customer}/>
       </Container>
     </Grid>
