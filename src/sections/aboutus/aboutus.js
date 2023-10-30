@@ -10,7 +10,7 @@ import { LanguageContext } from "@/contexts/context";
 function AboutUs(props) {
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container maxWidth="xl" sx={{ p: 2 }}>
+      <Container maxWidth="md" sx={{ p: 2 }}>
           <AboutUsContent aboutus={props.aboutus}/>
       </Container>
     </Grid>

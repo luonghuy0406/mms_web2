@@ -31,7 +31,7 @@ const Page = ({posts}) => {
             </title>
             </Head>
             <Grid item md={12}>
-              <Container maxWidth="xl">
+              <Container maxWidth="md">
                 <Grid
                   container
                   classes={{ root: classes.container }}

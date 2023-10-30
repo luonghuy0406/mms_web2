@@ -78,7 +78,7 @@ import SendMail from "./send_mail";
   },[inView])
     return (
       <Grid item md={12} ref={ref}  sx={{ padding: { xs: "15px 0", md: "30px 0" },paddingBottom:"0 !important"}}>
-        <Container maxWidth="xl" sx={{ p: 2 }}>
+        <Container maxWidth="md" sx={{ p: 2 }}>
           <div 
               ref={headerRef}
               className={"animate__animated animate__delay-0.1s"}>
@@ -202,7 +202,9 @@ import SendMail from "./send_mail";
               </Grid>
             </Grid>
           </Grid>
-          <Grid container sx={{pt:4}}>
+        </Container>
+        <Container maxWidth="xl" sx={{ p: 2 }}>
+          <Grid container sx={{pt:2}}>
                 {
                 props.subProducts.map((sub) => {
                 return (

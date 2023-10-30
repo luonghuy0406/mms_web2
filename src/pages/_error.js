@@ -18,7 +18,7 @@ const Page = ({ statusCode }) => (
         minHeight: '100%'
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="md">
         <Box
           sx={{
             alignItems: 'center',

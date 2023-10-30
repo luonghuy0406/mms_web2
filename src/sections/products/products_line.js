@@ -127,7 +127,7 @@ function Products(props) {
   },[inView])
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container ref={ref} maxWidth="xl" sx={{ p: 2 }}>
+      <Container ref={ref} maxWidth="md" sx={{ p: 2 }}>
         <Grid container >
             <Grid
                 ref={headerRef}
@@ -174,13 +174,13 @@ function Products(props) {
                             href={`/${props.path}/${convertPath(item.name)}-${item.id_product}`}
                             title=""
                         >
-                            <Box position='relative' style={{height:'auto', aspectRatio: 1, display:'flex', justifyContent:'center'}}>
+                            <Box position='relative' style={{height:'auto', aspectRatio: 0.75, display:'flex', justifyContent:'center'}}>
                                 <Box
                                     className='product-image'
                                     sx={{
                                         width: '85%',
                                         height: 'auto',
-                                        aspectRatio: 1.2,
+                                        aspectRatio: 1,
                                         backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',

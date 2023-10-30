@@ -72,7 +72,7 @@ function News(props) {
   const posts = props.posts
   return (
     <Grid item md={12} sx={{ padding: 0 }}>
-      <Container maxWidth="xl" sx={{ p: 2 }}>
+      <Container maxWidth="md" sx={{ p: 2 }}>
         <Grid container ref={ref}>
             <Grid
                 id="content_lb1"
