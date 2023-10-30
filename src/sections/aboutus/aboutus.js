@@ -123,7 +123,7 @@ const AboutUsContent = (props) => {
       </Grid>
       <Grid  id="aboutus_content" className={"animate__animated animate__delay-0.1s "} item md={6} lg={7} direction='row' container sx={{alignItems: 'center',pl:7}}>
           <Stack >
-            <Stack direction='row' sx={{alignItems: 'center'}}>
+            {/* <Stack direction='row' sx={{alignItems: 'center'}}>
               <Stack direction='row' sx={{alignItems: 'baseline'}}>
                 <Typography variant="h2" color='var(--dark-blue)' fontWeight='bolder'>
                     20
@@ -140,95 +140,12 @@ const AboutUsContent = (props) => {
                   Experience
                 </Typography>
               </Stack>
-            </Stack>
+            </Stack> */}
             <Stack spacing={2} sx={{pt:2}}>
               <div className='ck-content' dangerouslySetInnerHTML={{__html:language =='vi'? (props.aboutus?.content || props.aboutus?.content_en) : (props.aboutus?.content_en || props.aboutus?.content)}}/>
             </Stack>
           </Stack>
       </Grid>
-
-      {/* <Grid  id="aboutus_brand" className={"animate__animated animate__delay-0.1s "} item xs={12} sx={{pt:3}}>
-        <Carousel
-            additionalTransfrom={0}
-            arrows={false}
-            autoPlay
-            autoPlaySpeed={2000}
-            customTransition="all 0.5s linear"
-            centerMode={false}
-            className=""
-            containerClass="container-with-dots"
-            dotListClass=""
-            draggable
-            focusOnSelect={false}
-            infinite
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            pauseOnHover
-            renderArrowsWhenDisabled={false}
-            renderButtonGroupOutside={false}
-            renderDotsOutside={false}
-            responsive={{
-                desktop: {
-                    breakpoint: {
-                        max: 3000,
-                        min: 1024
-                    },
-                    items: 5,
-                    partialVisibilityGutter: 40
-                },
-                mobile: {
-                    breakpoint: {
-                        max: 464,
-                        min: 0
-                    },
-                    items: 4,
-                    partialVisibilityGutter: 30
-                },
-                tablet: {
-                    breakpoint: {
-                        max: 1024,
-                        min: 464
-                    },
-                    items: 4,
-                    partialVisibilityGutter: 30
-                }
-            }}
-            rewind={false}
-            rewindWithAnimation={false}
-            rtl={false}
-            shouldResetAutoplay
-            showDots={false}
-            sliderClass=""
-            slidesToSlide={1}
-            swipeable
-            >
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://logos-world.net/wp-content/uploads/2020/09/Google-Logo.png" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://logohistory.net/wp-content/uploads/2022/10/Facebook-Logo.svg" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-instagram.png" width="400"/>
-                </Box>
-                <Box sx={{p:2}}>
-                    <img  alt='logo' src="https://cdn.sanity.io/images/kts928pd/production/8f4940ab2b110be46a20fe7efd88e9826c801ce7-3840x2160.png" width="400"/>
-                </Box>
-        </Carousel>
-      </Grid> */}
     </Grid>
   );
 };

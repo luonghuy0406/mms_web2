@@ -24,12 +24,12 @@ function Footer({footer}) {
             md={3}
             pb={2}
             container
-            justifyContent="center"
-            alignItems="center"
+            justifyContent="start"
+            alignItems="start"
           >
             <Box
               sx={{
-                width: { xs: "30%", md: "65%" },
+                width: { xs: "40%", md: "75%" },
               }}
             >
                <img src={'https://mmsvn.com/mms_logo.png'} alt='mms logo' width={'100%'} />
@@ -41,7 +41,7 @@ function Footer({footer}) {
             xs={12}
             md={6}
           >
-            <Grid item xs={12} md={12} sm={12}>
+            <Grid item xs={12} md={12} sm={12} pb={2}>
               <Typography
                 fontFamily={"var(--font-family-header)"}
                 variant="h5"
@@ -80,9 +80,9 @@ function Footer({footer}) {
                 alignItems: "center",
               }}
             >
-              <LocationOnIcon sx={{color:"var(--orange)"}}/>
+              <LocationOnIcon sx={{color:"var(--orange)", lineHeight:"20px"}}/>
               <label
-                style={{ paddingLeft: "15px" }}
+                style={{ padding: "15px 0 10px 10px", lineHeight:"20px" }}
                 dangerouslySetInnerHTML={{
                   __html: language == 'vi'? (ft[0]?.adress || ft[0]?.adress_en) : (ft[0]?.adress_en || ft[0]?.adress),
                 }}
@@ -96,30 +96,8 @@ function Footer({footer}) {
                 alignItems: "center",
               }}
             >
-              <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0]?.phone_num}</label>
-            </label>
-            <label
-              style={{
-                fontFamily: "var(--font-family)",
-                color: "var(--dark-blue)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <EmailIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0]?.email}</label>
-            </label>
-            <label
-              style={{
-                fontFamily: "var(--font-family)",
-                color: "var(--dark-blue)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <FacebookIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link1}</label>
+              <PhoneIcon style={{ color:"var(--orange)", marginTop:"3px", lineHeight:"20px" }} />
+              <label style={{ padding: "15px 0 10px 10px", lineHeight:"20px" }}>{ft[0]?.phone_num}</label>
             </label>
           </Grid>
           <Grid
@@ -150,14 +128,15 @@ function Footer({footer}) {
                 alignItems: "center",
               }}
             >
-              <LocationOnIcon sx={{color:"var(--orange)"}}/>
+              <LocationOnIcon sx={{color:"var(--orange)", lineHeight:"20px"}}/>
               <label
-                style={{ paddingLeft: "15px" }}
+                style={{ padding: "15px 0 10px 10px", lineHeight:"20px" }}
                 dangerouslySetInnerHTML={{
                   __html: language == 'vi'? (ft[1]?.adress || ft[1]?.adress_en) : (ft[1]?.adress_en || ft[1]?.adress),
                 }}
               ></label>
             </label>
+            
             <label
               style={{
                 fontFamily: "var(--font-family)",
@@ -166,8 +145,8 @@ function Footer({footer}) {
                 alignItems: "center",
               }}
             >
-              <PhoneIcon style={{ marginBottom: "5px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[1]?.phone_num}</label>
+              <EmailIcon style={{color:"var(--orange)", marginTop:"3px", lineHeight:"20px"}} />
+              <label style={{ padding: "15px 0 10px 10px", lineHeight:"20px" }}>{ft[0]?.email}</label>
             </label>
             <label
               style={{
@@ -177,19 +156,8 @@ function Footer({footer}) {
                 alignItems: "center",
               }}
             >
-              <YouTubeIcon style={{ marginBottom: "3px" , color:"var(--orange)"}} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link2}</label>
-            </label>
-            <label
-              style={{
-                fontFamily: "var(--font-family)",
-                color: "var(--dark-blue)",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <LinkedInIcon style={{ marginBottom: "3px", color:"var(--orange)" }} />
-              <label style={{ paddingLeft: "15px" }}>{ft[0]?.link3}</label>
+              <FacebookIcon style={{color:"var(--orange)", marginTop:"3px", lineHeight:"20px" }} />
+              <label style={{ padding: "15px 0 10px 10px", lineHeight:"20px" }}>{ft[0]?.link1}</label>
             </label>
           </Grid>
           </Grid>
@@ -203,9 +171,9 @@ function Footer({footer}) {
             pr={1}
             pl={1}
             justifyContent="center"
-            alignItems="center"
+            alignItems="start"
           >
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15676.041946147096!2d106.6687727!3d10.8105083!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752923abe56be7%3A0xab7e5e456b8a521a!2sC%C3%B4ng%20Ty%20TNHH%20Mekong%20Marine%20Supply!5e0!3m2!1sen!2s!4v1693972632004!5m2!1sen!2s" width="300" height="200" style={{"border":"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15676.041946147096!2d106.6687727!3d10.8105083!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752923abe56be7%3A0xab7e5e456b8a521a!2sC%C3%B4ng%20Ty%20TNHH%20Mekong%20Marine%20Supply!5e0!3m2!1sen!2s!4v1693972632004!5m2!1sen!2s" width="100%" height="200" style={{"border":"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </Grid>
         </Grid>
       </Container>
@@ -213,7 +181,7 @@ function Footer({footer}) {
         style={{
           height: "auto",
           padding: "10px 20px",
-          paddingTop: "40px",
+          paddingTop: "80px",
           fontSize: "13px",
           display: "flex",
           justifyContent: "end",
