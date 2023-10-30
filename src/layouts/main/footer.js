@@ -32,10 +32,7 @@ function Footer({footer}) {
                 width: { xs: "30%", md: "65%" },
               }}
             >
-            <img style={{width:'100%'}}
-              src={'./mms_logo.png'}
-              alt='logo'
-              />
+               <img src={'https://mmsvn.com/mms_logo.png'} alt='mms logo' width={'100%'} />
               </Box>
           </Grid>
           <Grid
