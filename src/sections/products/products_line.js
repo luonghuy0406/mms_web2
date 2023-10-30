@@ -178,13 +178,15 @@ function Products(props) {
                                     className='product-image'
                                     sx={{
                                         width: '85%',
-                                        height: '250px',
+                                        height: 'auto',
+                                        aspectRatio: 1,
                                         backgroundImage: `url(${process.env.API_HOST}/read_image/${item.image})`,
                                         backgroundSize: '80%',
                                         backgroundRepeat: 'no-repeat',
                                         backgroundPosition: 'center',
                                         transition: 'transform .2s linear',
                                         position:'absolute',
+                                        margin:"20px"
                                     }}
                                 >
                                         

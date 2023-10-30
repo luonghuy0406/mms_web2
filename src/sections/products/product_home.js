@@ -86,13 +86,14 @@ function ProductHome(props) {
                             justifyContent: "center",
                             boxShadow: "0px 0px 1px 1px rgba(0,0,0,0.2)",
                             position: "relative",
+                            padding: "10px"
                         }}
                         >
                         <Box
                             component="img"
                             sx={{
-                            width: { xs: "60%", md: "90%" },
-                            aspectRatio: " 3/2",
+                            width: { xs: "100%", md: "100%" },
+                            aspectRatio: " 1",
                             objectFit: "contain",
                             }}
                             src={process.env.API_HOST +'/read_image/'+props.product.image}
