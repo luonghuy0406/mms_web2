@@ -107,7 +107,6 @@ function Footer({footer}) {
             sm={6}
             md={6}
             pr={1}
-            pl={1}
             pb={2}
             direction="column"
           >
@@ -169,7 +168,6 @@ function Footer({footer}) {
             sm={12}
             md={3}
             pr={1}
-            pl={1}
             justifyContent="center"
             alignItems="start"
           >
