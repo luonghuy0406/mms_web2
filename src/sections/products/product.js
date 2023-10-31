@@ -198,6 +198,7 @@ import SendMail from "./send_mail";
                 </Box>
                 <SendMail
                   id={props.product[0].id_product}
+                  pr_name={props.product[0].name}
                 />
               </Grid>
             </Grid>

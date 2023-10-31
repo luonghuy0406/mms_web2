@@ -10,22 +10,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import useTrans from "@/hooks/useTrans";
-import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(() => {
-    return {
-        button: {
-        backgroundColor: "var(--dark-blue) !important",
-        fontWeight: "bold !important",
-        padding: "10px 15px !important",
-        "&:hover": {
-            backgroundColor: "var(--orange) !important",
-        },
-        },
-    };
-});
-
-export default function SendMail({ id }){
+export default function SendMail({ id, pr_name }){
     const trans = useTrans()
     const [open, setOpen] = React.useState(false);
     const [name, setName] = React.useState("");
@@ -35,7 +21,6 @@ export default function SendMail({ id }){
     const [nameValid, setNameValid] = React.useState(false);
     const [emailValid, setEmailValid] = React.useState(false);
     const [phoneValid, setPhoneValid] = React.useState(false);
-    const classes = useStyles();
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -47,7 +32,7 @@ export default function SendMail({ id }){
       setEmail("");
       setContent('')
     };
-    const handleSendMail = () => {
+    const handleSendMail = (id,pr_name) => {
       if (name.length > 0 && email.length > 0 && phone.length > 0 && isValidEmail(email)) {
         setOpen(false);
         setNameValid(false);
@@ -55,13 +40,16 @@ export default function SendMail({ id }){
         setPhoneValid(false);
         
         let data = $("#send-mail-form" + id).serializeArray();
-        let content = `Name: ${data[0].value}<br>Email: ${data[1].value}<br>Phone: ${data[2].value}<br></br>Content: ${data[3].value}<br>`
-        var raw = JSON.stringify({
+        let content = `Dear Mr/Ms,\nSome clients has interested in ${pr_name} in website\nBelow is their infomation:\nname: ${data[0].value},\nemail: ${data[1].value},\nphone number: ${data[2].value},\nmessage: ${data[3].value}\nPlease reply them asap.\nregard!!`
+        let raw = JSON.stringify({
           "content": content
         });
-        var requestOptions = {
+        let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+        let requestOptions = {
             method: 'POST',
             body: raw,
+            headers: myHeaders,
             redirect: 'follow'
         };
 
@@ -94,7 +82,7 @@ export default function SendMail({ id }){
         <Button
           variant="contained"
           onClick={handleClickOpen}
-          className={classes.button}
+          className={'button-sendmail'}
         >
           {trans['Contact us']}
         </Button>
@@ -187,7 +175,7 @@ export default function SendMail({ id }){
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose}>{trans['CANCEL']}</Button>
-              <Button onClick={handleSendMail}>{trans['SEND']}</Button>
+              <Button onClick={()=>{handleSendMail(id,pr_name)}}>{trans['SEND']}</Button>
             </DialogActions>
           </form>
         </Dialog>

@@ -67,3 +67,12 @@ img {
     box-shadow: 0 0 0 18px #06486B42;
   }
 }
+
+.button-sendmail{
+  background-color: var(--dark-blue) !important;
+  font-weight: bold !important;
+  padding: 10px 15px !important;
+}
+.button-sendmail:hover{
+    background-Color: var(--orange) !important;
+}

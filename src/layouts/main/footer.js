@@ -59,7 +59,6 @@ function Footer({footer}) {
             sm={6}
             md={6}
             pr={1}
-            pl={1}
             pb={2}
             direction="column"
           >
@@ -94,6 +93,7 @@ function Footer({footer}) {
                 color: "var(--dark-blue)",
                 display: "flex",
                 alignItems: "center",
+                justifyContent:'start'
               }}
             >
               <PhoneIcon style={{ color:"var(--orange)", marginTop:"3px", lineHeight:"20px" }} />
@@ -173,6 +173,17 @@ function Footer({footer}) {
             justifyContent="center"
             alignItems="start"
           >
+            <Grid item xs={12} md={12} sm={12} pb={2} sx={{visibility:"hidden"}}>
+              <Typography
+                fontFamily={"var(--font-family-header)"}
+                variant="h5"
+                gutterBottom
+                color="var(--dark-blue)"
+                fontWeight="bolder"
+              >
+                {(trans["Mekong Marine Supply Co., Ltd"])}
+              </Typography>
+            </Grid>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15676.041946147096!2d106.6687727!3d10.8105083!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752923abe56be7%3A0xab7e5e456b8a521a!2sC%C3%B4ng%20Ty%20TNHH%20Mekong%20Marine%20Supply!5e0!3m2!1sen!2s!4v1693972632004!5m2!1sen!2s" width="100%" height="200" style={{"border":"0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </Grid>
         </Grid>
