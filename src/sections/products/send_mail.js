@@ -40,7 +40,7 @@ export default function SendMail({ id, pr_name }){
         setPhoneValid(false);
         
         let data = $("#send-mail-form" + id).serializeArray();
-        let content = `Dear Mr/Ms,\nSome clients has interested in ${pr_name} in website\nBelow is their infomation:\nname: ${data[0].value},\nemail: ${data[1].value},\nphone number: ${data[2].value},\nmessage: ${data[3].value}\nPlease reply them asap.\nregard!!`
+        let content = `Dear Mr/Ms,<br>Some clients has interested in ${pr_name} in website<br>Below is their infomation:<br>name: ${data[0].value},<br>email: ${data[1].value},<br>phone number: ${data[2].value},<br>message: ${data[3].value}<br>Please reply them asap.<br>regard!!`
         let raw = JSON.stringify({
           "content": content
         });
